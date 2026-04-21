@@ -1,0 +1,83 @@
+{{ if .Site.Params.experience.enable | default false }}
+{{- $experience := .Site.Language.Params.experience | default .Site.Params.experience -}}
+<section id="experience" class="py-5">
+    <div class="container">
+        <h3 class="text-center">{{ $experience.title | default .Site.Params.experience.title | default (i18n "experience") }}</h3>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 col-lg-8 py-5">
+                <div class="experience-container px-3 pt-2">
+                    <div class="pb-3 bg-transparent primary-font">
+                        {{ range $index, $item := $experience.items | default .Site.Params.experience.items }}
+                            <div class="pb-4">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div>
+                                        <span class="h4">{{ $item.title }}</span>
+
+                                        {{ if $item.info.content }}
+                                            <span class="p-2">
+                                                <span
+                                                    data-bs-toggle="tooltip"
+                                                    data-bs-placement="top"
+                                                    data-bs-original-title={{ $item.info.content }}
+                                                >
+                                                    <i class="fas fa-info-circle fa-xs"></i>
+                                                </span>
+                                            </span>
+                                        {{ end }}
+
+                                        {{ if $item.company }}
+                                            <small>-</small>
+                                            <a href="{{ $item.companyUrl }}" target="_blank">{{ $item.company }}</a>
+                                        {{ end }}
+                                    </div>
+                                    <div class="d-block">
+                                        <small>{{ $item.date }}</small>
+                                        {{ if $item.featuredItems }}
+                                            <div class="featuredLink list-inline d-flex justify-content-end align-items-center">
+                                                {{ range $item.featuredItems.fontAwesomeIcons }}
+                                                    <div class="list-inline-item">
+                                                        
+                                                            href="{{ .url }}"
+                                                            target="_blank"
+                                                            {{ if .tooltip }}
+                                                                data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-original-title={{ .tooltip }}
+                                                            {{ end }}
+                                                        >
+                                                            <i class="{{ .icon }}"></i>
+                                                        </a>
+                                                    </div>
+                                                {{ end }}
+                                                {{ range $item.featuredItems.customIcons }}
+                                                    <div class="list-inline-item">
+                                                        
+                                                            class="d-flex align-items-center justify-content-between"
+                                                            href="{{ .url }}"
+                                                            target="_blank"
+                                                            {{ if .tooltip }}
+                                                                data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-original-title={{ .tooltip }}
+                                                            {{ end }}
+                                                        >
+                                                            <img src="{{ .icon }}">
+                                                        </a>
+                                                    </div>
+                                                {{ end }}
+                                            </div>
+                                        {{ end }}
+                                    </div>
+                                </div>
+                                <div class="pb-2">
+                                    {{ $item.content | markdownify }}
+                                </div>
+                            </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

@@ -11,11 +11,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blogs/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/blogs/"
                 />
@@ -42,11 +37,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/"
                 />
@@ -60,11 +50,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/tags/mathjax/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/tags/mathjax/"
                 />
@@ -75,11 +60,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="http://localhost:1313/blogs/math/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blogs/math/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -109,27 +89,12 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/tags/"
                 />
   </url><url>
     <loc>http://localhost:1313/es/gallery/</loc>
     <lastmod>2022-06-25T18:35:46+05:30</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/gallery/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="http://localhost:1313/es/gallery/"
-                />
   </url><url>
     <loc>http://localhost:1313/es/tags/muestra/</loc>
     <lastmod>2021-04-03T23:29:21+05:30</lastmod>
@@ -153,11 +118,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blogs/markdown-syntax/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/blogs/markdown-syntax/"
                 />
@@ -168,11 +128,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="http://localhost:1313/blogs/emoji-support/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blogs/emoji-support/"
                 />
     <xhtml:link
                 rel="alternate"
@@ -202,11 +157,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blogs/placeholder-text/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/blogs/placeholder-text/"
                 />
@@ -233,11 +183,6 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/blogs/rich-content/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="es"
                 href="http://localhost:1313/es/blogs/rich-content/"
                 />
@@ -260,11 +205,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="http://localhost:1313/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="http://localhost:1313/fr/categories/"
                 />
     <xhtml:link
                 rel="alternate"
