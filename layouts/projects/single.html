@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-8">
+        <h1>{{ .Title }}</h1>
+        <hr>
+        <div class="primary-font">
+          {{ .Content }}
+        </div>
+        <a href="/#projects" class="btn btn-outline-secondary mt-4">← Back to Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
