@@ -282,12 +282,16 @@ params:
           - "MLOps"
           - "GCP"
           - "Streamlit"
+          - "Optuna"
+          - "Evidently AI"
+          - "DVC"
+          - "MLFlow"
         links:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/bpjs-hospital-readmission
 
-      - title: Javanese, Balinese, Minangkabao, Sundanese, and Dayak Translator to Indonesia
-        content: My thesis project translating 5 local languages in Indonesia to Bahasa Indonesia
+      - title: Multilingual Translator (Local Indonesia languages to Bahasa Indonesia)
+        content: I fine-tuned LLM models to translate 5 local languages in Indonesia (Javanese, Balinese, Minangkabau, Sundanese, and Dayak) to Bahasa Indonesia.
         image: /images/projects/translator.png
         featured:
           name: Demo
@@ -296,6 +300,7 @@ params:
           - "NLP"
           - "Transformer"
           - "Machine Translation"
+          - "HuggingFace"
         links:
           - icon: fab fa-github
             url: https://github.com/gurusabarish/HugoProfileV2
