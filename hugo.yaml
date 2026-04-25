@@ -258,28 +258,31 @@ params:
     # title: "Custom Name"
     items:
       - title: FlowGuard AI
-        content: Behavioral Shadow Auditing & Fault Injection for Industrial Node-RED Flows.
+        content: This project simulates a real-world manufacturing environment where an AI agent continuously monitors and audits industrial automation logic for security vulnerabilities and logic flaws.
         image: /images/projects/flowguard.png
         slug: flowguard-ai
         featured:
           name: Demo
           link: https://hugo-profile.netlify.app
         badges:
+          - "AI Agent"
           - "Node-RED"
           - "Ollama"
           - "FastAPI"
+          - "Docker"
         links:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/manufacture-security
 
       - title: BPJS Hospital Readmission Prediction
         content: MLOps project to predict 30-day hospital readmissions for BPJS patients in Indonesia and includes an interactive dashboard for regional and demographic analysis.
-        image: /images/projects/converter.jpg
+        image: /images/projects/bpjs.png
         featured:
-          name: Demo
-          link: https://bpjs-next-app.vercel.app/
+          name: Dashboard
+          link: https://bpjs-eda-report.streamlit.app/
         badges:
           - "MLOps"
+          - "Classification"
           - "GCP"
           - "Streamlit"
           - "Optuna"
@@ -301,9 +304,52 @@ params:
           - "Transformer"
           - "Machine Translation"
           - "HuggingFace"
+
+      - title: Anime Recommender System
+        content: An end-to-end MLOps implementation for an anime recommendation system. Users can rate anime they have watched, and the system will generate new recommendations based on their ratings.
+        image: /images/projects/anime.png
+        featured:
+          name: Demo
+          link: https://anime-recommendation-next-app.vercel.app/
+        badges:
+          - "MLOps"
+          - "Recommender System"
+          - "MLFlow"
+          - "DVC"
+          - "CI/CD"
+          - "GCS"
         links:
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/HugoProfileV2
+            url: https://github.com/FrienDotJava/anime-recommendation-app
+
+      - title: Income Prediction System
+        content: A modular machine-learning project that predicts whether a person’s annual income is > $50K or ≤ $50K.
+        image: /images/projects/income.png
+        featured:
+          name: Demo
+          link: https://income-prediction1.streamlit.app/
+        badges:
+          - "MLOps"
+          - "Classification"
+          - "MLFlow"
+          - "DVC"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/FrienDotJava/income-prediction
+
+      - title: Beijing Air Quality Analysis
+        content: An end-to-end data analysis project exploring air quality across multiple districts in Beijing. Includes exploratory data analysis in Jupyter Notebook and an interactive Streamlit dashboard for visualizing pollutant trends and patterns.
+        image: /images/projects/air-quality.png
+        featured:
+          name: Demo
+          link: https://air-quality-analysis-a4zkrusgbn4jfwznqjuxcr.streamlit.app/
+        badges:
+          - "Data Analysis"
+          - "Air Quality"
+          - "Streamlit"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/FrienDotJava/air-quality-analysis
 
   #Contact
   contact:
