@@ -289,6 +289,7 @@ params:
           - "Evidently AI"
           - "DVC"
           - "MLFlow"
+          - "FastAPI"
         links:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/bpjs-hospital-readmission
@@ -305,8 +306,8 @@ params:
           - "Machine Translation"
           - "HuggingFace"
 
-      - title: Anime Recommender System
-        content: An end-to-end MLOps implementation for an anime recommendation system. Users can rate anime they have watched, and the system will generate new recommendations based on their ratings.
+      - title: Product Recommendation System
+        content: Product recommendation system built using anime dataset as a proxy. Users can rate anime they have watched, and the system will generate new recommendations based on their ratings.
         image: /images/projects/anime.png
         featured:
           name: Demo
@@ -357,7 +358,7 @@ params:
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
     btnName: Mail me
-    btnLink: mailto:frenfrendy3@gmail.com
+    btnLink: mailto:business.frendy@gmail.com
     # formspree:
     #   enable: true # `contact.email` value will be ignored
     #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
