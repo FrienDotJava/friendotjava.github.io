@@ -1,11 +1,26 @@
+{{ define "head" }}
+<style>
+  .project-content a {
+    color: #7aa6c9;
+    text-decoration-color: rgba(122, 166, 201, 0.55);
+  }
+
+  .project-content a:hover,
+  .project-content a:focus {
+    color: #8cb6d6;
+    text-decoration-color: currentColor;
+  }
+</style>
+{{ end }}
+
 {{ define "main" }}
 <section class="py-5">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-10 col-lg-9">
         <h1>{{ .Title }}</h1>
         <hr>
-        <div class="primary-font">
+        <div class="primary-font project-content">
           {{ .Content }}
         </div>
         <a href="/#projects" class="btn btn-outline-secondary mt-4">← Back to Projects</a>

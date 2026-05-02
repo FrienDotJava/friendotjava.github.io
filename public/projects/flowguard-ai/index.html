@@ -31,19 +31,20 @@
 <meta property="og:url" content="http://localhost:1313/projects/flowguard-ai/">
   <meta property="og:site_name" content="Frendy">
   <meta property="og:title" content="FlowGuard AI">
-  <meta property="og:description" content="Overview Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.
-Features Feature one Feature two Tech Stack">
+  <meta property="og:description" content="Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
     <meta property="article:published_time" content="2024-01-01T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="Node-RED">
+    <meta property="article:tag" content="Ollama">
+    <meta property="article:tag" content="FastAPI">
 
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="FlowGuard AI">
-  <meta name="twitter:description" content="Overview Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.
-Features Feature one Feature two Tech Stack">
+  <meta name="twitter:description" content="Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.">
 
 
 
@@ -110,6 +111,19 @@ Features Feature one Feature two Tech Stack">
 </style>
 
 
+
+<style>
+  .project-content a {
+    color: #7aa6c9;
+    text-decoration-color: rgba(122, 166, 201, 0.55);
+  }
+
+  .project-content a:hover,
+  .project-content a:focus {
+    color: #8cb6d6;
+    text-decoration-color: currentColor;
+  }
+</style>
 
 
   
@@ -303,18 +317,111 @@ Features Feature one Feature two Tech Stack">
 <section class="py-5">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-8">
+      <div class="col-sm-12 col-md-10 col-lg-9">
         <h1>FlowGuard AI</h1>
         <hr>
-        <div class="primary-font">
+        <div class="primary-font project-content">
           <h2 id="overview">Overview</h2>
-<p>Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.</p>
-<h2 id="features">Features</h2>
+<p>A 2-3 sentence elevator pitch. What is it, who is it for, and what problem does it solve?</p>
+<hr>
+<h2 id="the-problem">The Problem</h2>
+<p>What pain point or gap motivated this project?
+Tell it like a story, what did you observe, read, or experience that made you think
+&ldquo;this needs to exist&rdquo;? This is where you hook the reader.</p>
+<hr>
+<h2 id="goals--scope">Goals &amp; Scope</h2>
+<p>What were you trying to achieve? Use a short list:</p>
 <ul>
-<li>Feature one</li>
-<li>Feature two</li>
+<li>Goal 1: e.g. detect anomalous flow behavior in real time</li>
+<li>Goal 2: e.g. simulate fault conditions without affecting production</li>
+<li>Goal 3: e.g. provide explainable audit logs via LLM</li>
 </ul>
+<p>Also briefly mention what was intentionally out of scope.</p>
+<hr>
+<h2 id="system-design--architecture">System Design &amp; Architecture</h2>
+<p>Explain how the system is structured at a high level.
+Include an architecture diagram if you have one:</p>
+<img src="/images/projects/flowguard.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
+<p>Walk through the major components and how they interact.
+This is the section engineers will read most carefully.</p>
+<hr>
 <h2 id="tech-stack">Tech Stack</h2>
+<table class="table table-bordered mt-3 text-light">
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Technology</th>
+      <th>Why I chose it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Flow Runtime</td>
+      <td><strong>Node-RED</strong></td>
+      <td>Industry standard for IIoT flows</td>
+    </tr>
+    <tr>
+      <td>LLM Backend</td>
+      <td><strong>Ollama (Llama 3)</strong></td>
+      <td>Local inference, no data leaves the network</td>
+    </tr>
+    <tr>
+      <td>API Layer</td>
+      <td><strong>FastAPI</strong></td>
+      <td>Async, lightweight, easy to document</td>
+    </tr>
+    <tr>
+      <td>Frontend</td>
+      <td><strong>React + Tailwind</strong></td>
+      <td>Component-based UI with utility styling</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="development-journey">Development Journey</h2>
+<h3 id="phase-1-research--prototyping">Phase 1: Research &amp; Prototyping</h3>
+<p>What did you explore first? What assumptions did you test?</p>
+<h3 id="phase-2-core-implementation">Phase 2: Core Implementation</h3>
+<p>What was the hardest part to build? What approach did you take?</p>
+<h3 id="phase-3-testing--iteration">Phase 3: Testing &amp; Iteration</h3>
+<p>How did you validate it works? What broke and how did you fix it?</p>
+<hr>
+<h2 id="challenges--how-i-solved-them">Challenges &amp; How I Solved Them</h2>
+<p>This is the most valuable section for showing problem-solving ability.</p>
+<p><strong>Challenge 1: [Name the problem]</strong>
+Describe what went wrong or was harder than expected,
+then explain your solution and the tradeoff you made.</p>
+<p><strong>Challenge 2: [Name the problem]</strong>
+Same structure, problem, solution, tradeoff.</p>
+<hr>
+<h2 id="results--impact">Results &amp; Impact</h2>
+<p>Be concrete. Numbers &gt; adjectives.</p>
+<ul>
+<li>Reduced false positive rate by X%</li>
+<li>Processed X flows per second under load</li>
+<li>Used in X production environments</li>
+<li>Demo/research presented at [event]</li>
+</ul>
+<hr>
+<h2 id="what-i-learned">What I Learned</h2>
+<p>Honest reflection. What would you do differently?
+What skills or concepts did this project teach you?
+This shows self-awareness and growth mindset.</p>
+<hr>
+<h2 id="future-work">Future Work</h2>
+<p>What&rsquo;s next if you continue the project?</p>
+<ul>
+<li>Feature idea 1</li>
+<li>Scalability improvement</li>
+<li>Known limitation you&rsquo;d address</li>
+</ul>
+<hr>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://github.com/...">GitHub Repository</a></li>
+<li><a href="https://...">Live Demo</a></li>
+<li><a href="">Paper / Report / Presentation</a> <em>(if applicable)</em></li>
+</ul>
 
         </div>
         <a href="/#projects" class="btn btn-outline-secondary mt-4">← Back to Projects</a>
@@ -326,8 +433,6 @@ Features Feature one Feature two Tech Stack">
   </div><footer>
     
 
-
-  
 
  
 
