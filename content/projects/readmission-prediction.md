@@ -10,6 +10,7 @@ image: /images/projects/bpjs-readmission.png
 ## Overview
 This project builds a machine learning system to predict 30-day hospital readmission risk for patients enrolled in BPJS, Indonesia's national health insurance program. The system includes a full ML pipeline from raw data to model serving, an interactive EDA dashboard, and a web application for real-time inference.
 
+{{< youtube LL41NgKK4Q8 >}}
 ---
 
 ## The Problem
