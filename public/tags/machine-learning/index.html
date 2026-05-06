@@ -28,23 +28,17 @@
 
 
 
-<meta property="og:url" content="http://localhost:1313/projects/flowguard-ai/">
+<meta property="og:url" content="http://localhost:1313/tags/machine-learning/">
   <meta property="og:site_name" content="Frendy">
-  <meta property="og:title" content="FlowGuard AI">
-  <meta property="og:description" content="Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.">
+  <meta property="og:title" content="Machine Learning">
+  <meta property="og:description" content="This is my portfolio website where you can get to know me">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2026-05-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-05T00:00:00+00:00">
-    <meta property="article:tag" content="Node-RED">
-    <meta property="article:tag" content="Ollama">
-    <meta property="article:tag" content="FastAPI">
+  <meta property="og:type" content="website">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="FlowGuard AI">
-  <meta name="twitter:description" content="Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.">
+  <meta name="twitter:title" content="Machine Learning">
+  <meta name="twitter:description" content="This is my portfolio website where you can get to know me">
 
 
 
@@ -112,24 +106,16 @@
 
 
 
-<style>
-  .project-content a {
-    color: #7aa6c9;
-    text-decoration-color: rgba(122, 166, 201, 0.55);
-  }
-
-  .project-content a:hover,
-  .project-content a:focus {
-    color: #8cb6d6;
-    text-decoration-color: currentColor;
-  }
-</style>
+<meta name="description" content="Machine Learning of Frendy">
+<link rel="stylesheet" href="/css/list.css" media="all">
 
 
   
   
 
   <title>
+Machine Learning | Frendy
+
   </title>
 </head>
 
@@ -294,108 +280,42 @@
     </nav>
 </header>
 <div id="content">
-<section class="py-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-10 col-lg-9">
-        <h1>FlowGuard AI</h1>
-        <hr>
-        <div class="project-content default-font">
-          <h2 id="overview">Overview</h2>
-<p>FlowGuard AI is a system that simulates a real-world manufacturing environment where an AI agent continuously monitors and audits industrial automation logic for security vulnerabilities and logic flaws.</p>
-<h2 id="hahahugoshortcode6s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/SWnxta0uE7A?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-</h2>
-<h2 id="the-problem">The Problem</h2>
-<p>During an internship at a manufacturing company, I observed that many business processes were still handled manually, which introduced the risk of human error. One area that stood out was in the Engineering department, where developers had to hunt for errors in automation systems by hand, a process that could take several hours with no guarantee of completeness. This experience motivated me to build an AI-powered system capable of analyzing industrial automation logic and identifying faults automatically.</p>
-<hr>
-<h2 id="goals--scope">Goals &amp; Scope</h2>
-<ul>
-<li>Detect anomalous flow behavior in real time</li>
-<li>Simulate fault conditions without affecting production</li>
-<li>Generate explainable audit logs using an LLM</li>
-<li>Run entirely in a local environment so no data is sent to the cloud or external services.</li>
-</ul>
-<hr>
-<h2 id="system-design--architecture">System Design &amp; Architecture</h2>
-<img src="/images/projects/flowguard/arch.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
-<hr>
-<h2 id="tech-stack">Tech Stack</h2>
-<table class="table table-bordered mt-3 text-light">
-  <thead>
-    <tr>
-      <th>Layer</th>
-      <th>Technology</th>
-      <th>Why I chose it</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Flow Runtime</td>
-      <td>Node-RED</td>
-      <td>Industry standard for IIoT flows</td>
-    </tr>
-    <tr>
-      <td>LLM Backend</td>
-      <td>Ollama (Llama 3.2)</td>
-      <td>Local inference, no data leaves the network</td>
-    </tr>
-    <tr>
-      <td>API Layer</td>
-      <td>FastAPI</td>
-      <td>Async, lightweight, easy to document</td>
-    </tr>
-    <tr>
-      <td>Frontend</td>
-      <td>Next.js (React + Tailwind)</td>
-      <td>Component-based UI with utility styling</td>
-    </tr>
-  </tbody>
-</table>
-<hr>
-<h2 id="development-journey">Development Journey</h2>
-<h3 id="phase-1-research--prototyping">Phase 1: Research &amp; Prototyping</h3>
-<p>Having no prior exposure to industrial technologies, I started with a research phase to build foundational understanding. I studied Node-RED and related industrial concepts including Modbus, PLCs, and IIoT. Node-RED stood out as a widely adopted standard in the industry, and I became interested in connecting it to an AI system using Python. During this phase I also discovered the pymodbus library, an open-source Python implementation of the Modbus protocol, which became a key part of the integration.</p>
-<h3 id="phase-2-core-implementation">Phase 2: Core Implementation</h3>
-<p>The original design relied on tool-calling to let the AI agent fetch and analyze active Node-RED flows. However, this approach proved unreliable with locally hosted models given my hardware constraints. I revised the architecture so that FastAPI fetches the active flow directly, returns the data as JSON, and passes it to the model for analysis. This made the pipeline deterministic and consistent.
-To validate detection capability, I implemented a fault injection mechanism that deliberately introduces flaws into Node-RED flows. These faults ranged from missing connections between nodes, incorrect data type mappings, and misconfigured Modbus register addresses to logical errors such as inverted conditional branches and missing error-handling nodes. The injected flows were then passed through the analysis pipeline to test whether the model could correctly identify and describe each flaw. This approach allowed systematic validation without touching any production environment, keeping the testing process entirely self-contained.</p>
-<h3 id="phase-3-testing--iteration">Phase 3: Testing &amp; Iteration</h3>
-<p>Testing was conducted by compiling a list of known flaws and verifying whether the model correctly identified each one. This approach confirmed the system&rsquo;s detection capability, though automated evaluation has not yet been implemented.</p>
-<hr>
-<h2 id="challenges--how-i-solved-them">Challenges &amp; How I Solved Them</h2>
-<p><strong>Challenge 1: Inconsistent tool calling with local LLMs</strong>
-Getting a locally hosted LLM to call tools reliably was more difficult than anticipated. Hardware limitations, specifically available memory and RAM, made it hard to run a model large enough to handle tool use consistently. To resolve this, I moved tool invocation out of the model entirely: FastAPI now handles all API calls programmatically and supplies the resulting JSON directly to the model for analysis. This change improved reliability significantly and simplified the overall flow.</p>
-<hr>
-<h2 id="results--impact">Results &amp; Impact</h2>
-<p>Be concrete. Numbers &gt; adjectives.</p>
-<ul>
-<li>Reduced flow analysis time by 60%</li>
-<li>Detected 90% of introduced flaws across test cases</li>
-</ul>
-<hr>
-<h2 id="what-i-learned">What I Learned</h2>
-<p>This project highlighted how hardware constraints directly shape the design decisions of locally hosted AI systems. A model that performs well on a cloud server may behave inconsistently when run on a consumer machine with limited RAM, which pushed me to design around reliability rather than assuming the model would always behave as expected. I also gained practical experience in prompt engineering, learning how to structure inputs that produce consistent, useful outputs aligned with user needs. Beyond the technical side, this project taught me the value of pivoting early when an architectural decision proves fragile. Switching from tool-calling to a programmatic pipeline was a significant change, but making it sooner rather than later saved considerable debugging time and produced a more robust system overall.</p>
-<hr>
-<h2 id="future-work">Future Work</h2>
-<ul>
-<li>Implement structured model evaluation with automated metrics</li>
-<li>Optimize inference speed for more responsive analysis</li>
-<li>Explore lightweight quantized models that can run reliably within tighter memory budgets</li>
-<li>Add a feedback loop so flagged faults can be reviewed and used to refine future prompts and detection logic</li>
-</ul>
-<hr>
-<h2 id="links">Links</h2>
-<ul>
-<li><a href="https://github.com/FrienDotJava/manufacture-security">GitHub Repository</a></li>
-</ul>
-
+<div class="container pt-5" id="list-page">
+    <h2 class="text-center pb-2">Machine Learning</h2>
+    <div class="row">
+        
+        <div class="col-lg-4 col-md-6 my-3">
+            <div class="card h-100">
+                
+                <div class="card-header">
+                    <a href="/projects/readmission-prediction/">
+                        <img src="/images/projects/bpjs-readmission.png" class="card-img-top" alt="BPJS Hospital Readmission Prediction">
+                    </a>
+                </div>
+                
+                <div class="card-body bg-transparent p-4 shadow-sm">
+                    <a href="/projects/readmission-prediction/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="BPJS Hospital Readmission Prediction">BPJS Hospital Readmission …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><h2 id="overview">Overview</h2>
+<p>This project builds a machine learning system to predict 30-day hospital readmission risk for patients enrolled in BPJS, Indonesia&rsquo;s national health insurance program. The system includes a full ML pipeline from raw data to model serving, an interactive EDA dashboard, and a web …</p></p>
+                    </div>
+                </div>
+                <div class="mt-auto post-footer bg-transparent py-3">
+                    <span class="float-start bg-transparent">May 6, 2026</span>
+                    <a href="/projects/readmission-prediction/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
         </div>
-        <a href="/#projects" class="btn btn-outline-secondary mt-4">← Back to Projects</a>
-      </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-auto m-3">
+                
+            </div>
+        </div>
     </div>
-  </div>
-</section>
+</div>
 
   </div><footer>
     

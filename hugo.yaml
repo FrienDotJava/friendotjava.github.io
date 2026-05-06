@@ -265,6 +265,7 @@ params:
       - title: BPJS Hospital Readmission Prediction
         content: MLOps project to predict 30-day hospital readmissions for BPJS patients in Indonesia and includes an interactive dashboard for regional and demographic analysis.
         image: /images/projects/bpjs.png
+        slug: readmission-prediction
         featured:
           name: Dashboard
           link: https://bpjs-eda-report.streamlit.app/
@@ -276,6 +277,7 @@ params:
           - "Optuna"
           - "Evidently AI"
           - "DVC"
+          - "Featuretools"
           - "MLFlow"
           - "FastAPI"
         links:
@@ -283,7 +285,7 @@ params:
             url: https://github.com/FrienDotJava/bpjs-hospital-readmission
 
       - title: Multilingual Translator (Local Indonesia languages to Bahasa Indonesia)
-        content: I fine-tuned LLM models to translate 5 local languages in Indonesia (Javanese, Balinese, Minangkabau, Sundanese, and Dayak) to Bahasa Indonesia.
+        content: I fine-tuned LLMs to translate 5 local languages in Indonesia (Javanese, Balinese, Minangkabau, Sundanese, and Dayak) to Bahasa Indonesia.
         image: /images/projects/translator.png
         featured:
           name: Demo

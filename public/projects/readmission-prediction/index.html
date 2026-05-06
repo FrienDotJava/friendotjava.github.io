@@ -28,23 +28,25 @@
 
 
 
-<meta property="og:url" content="http://localhost:1313/projects/flowguard-ai/">
+<meta property="og:url" content="http://localhost:1313/projects/readmission-prediction/">
   <meta property="og:site_name" content="Frendy">
-  <meta property="og:title" content="FlowGuard AI">
-  <meta property="og:description" content="Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.">
+  <meta property="og:title" content="BPJS Hospital Readmission Prediction">
+  <meta property="og:description" content="A production-grade ML pipeline predicting 30-day hospital readmission risk for BPJS patients.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2026-05-05T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-05T00:00:00+00:00">
-    <meta property="article:tag" content="Node-RED">
-    <meta property="article:tag" content="Ollama">
+    <meta property="article:published_time" content="2026-05-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-06T00:00:00+00:00">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="XGBoost">
     <meta property="article:tag" content="FastAPI">
+    <meta property="article:tag" content="Streamlit">
+    <meta property="article:tag" content="Next.js">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="FlowGuard AI">
-  <meta name="twitter:description" content="Behavioral Shadow Auditing &amp; Fault Injection for Industrial Node-RED Flows.">
+  <meta name="twitter:title" content="BPJS Hospital Readmission Prediction">
+  <meta name="twitter:description" content="A production-grade ML pipeline predicting 30-day hospital readmission risk for BPJS patients.">
 
 
 
@@ -298,28 +300,25 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-10 col-lg-9">
-        <h1>FlowGuard AI</h1>
+        <h1>BPJS Hospital Readmission Prediction</h1>
         <hr>
         <div class="project-content default-font">
           <h2 id="overview">Overview</h2>
-<p>FlowGuard AI is a system that simulates a real-world manufacturing environment where an AI agent continuously monitors and audits industrial automation logic for security vulnerabilities and logic flaws.</p>
-<h2 id="hahahugoshortcode6s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/SWnxta0uE7A?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
-    </div>
-</h2>
+<p>This project builds a machine learning system to predict 30-day hospital readmission risk for patients enrolled in BPJS, Indonesia&rsquo;s national health insurance program. The system includes a full ML pipeline from raw data to model serving, an interactive EDA dashboard, and a web application for real-time inference.</p>
+<hr>
 <h2 id="the-problem">The Problem</h2>
-<p>During an internship at a manufacturing company, I observed that many business processes were still handled manually, which introduced the risk of human error. One area that stood out was in the Engineering department, where developers had to hunt for errors in automation systems by hand, a process that could take several hours with no guarantee of completeness. This experience motivated me to build an AI-powered system capable of analyzing industrial automation logic and identifying faults automatically.</p>
+<p>Hospital readmission within 30 days of discharge is a key indicator of healthcare quality and patient outcomes. For insurance providers like BPJS, unplanned readmissions represent a significant cost burden and often signal gaps in post-discharge care. Identifying high-risk patients before they are discharged allows healthcare providers to intervene early, coordinate follow-up care, and allocate resources more effectively. This project addresses that problem by developing a predictive model trained on historical BPJS patient data, covering demographics, primary care visits, and inpatient hospitalization records.</p>
 <hr>
 <h2 id="goals--scope">Goals &amp; Scope</h2>
 <ul>
-<li>Detect anomalous flow behavior in real time</li>
-<li>Simulate fault conditions without affecting production</li>
-<li>Generate explainable audit logs using an LLM</li>
-<li>Run entirely in a local environment so no data is sent to the cloud or external services.</li>
+<li>Build a predictive model for 30-day readmission risk using historical BPJS patient data</li>
+<li>Analyze patient demographics, visit patterns, and clinical factors that contribute to readmission</li>
+<li>Identify the key drivers of readmission to support clinical interpretation</li>
+<li>Provide accessible interfaces for model inference and data exploration</li>
 </ul>
 <hr>
 <h2 id="system-design--architecture">System Design &amp; Architecture</h2>
-<img src="/images/projects/flowguard/arch.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
+<img src="/images/projects/bpjs/arch.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
 <hr>
 <h2 id="tech-stack">Tech Stack</h2>
 <table class="table table-bordered mt-3 text-light">
@@ -332,62 +331,113 @@
   </thead>
   <tbody>
     <tr>
-      <td>Flow Runtime</td>
-      <td>Node-RED</td>
-      <td>Industry standard for IIoT flows</td>
+      <td>ML Model</td>
+      <td>XGBoost</td>
+      <td>Strong performance on tabular healthcare data, built-in feature importance</td>
     </tr>
     <tr>
-      <td>LLM Backend</td>
-      <td>Ollama (Llama 3.2)</td>
-      <td>Local inference, no data leaves the network</td>
+      <td>Pipeline Orchestration</td>
+      <td>DVC</td>
+      <td>Reproducible ML pipeline with dependency tracking</td>
+    </tr>
+    <tr>
+      <td>Experiment Tracking</td>
+      <td>MLflow + DagsHub</td>
+      <td>Centralized logging of runs, metrics, and model versions</td>
+    </tr>
+    <tr>
+      <td>Data Validation</td>
+      <td>Great Expectations</td>
+      <td>Automated data quality checks at each pipeline stage</td>
+    </tr>
+    <tr>
+      <td>Feature Engineering</td>
+      <td>Featuretools</td>
+      <td>Automated multi-table feature creation across linked datasets</td>
+    </tr>
+    <tr>
+      <td>Hyperparameter Tuning</td>
+      <td>Optuna</td>
+      <td>Fast and automated hyperparameter tuning</td>
+    </tr>
+    <tr>
+      <td>Interpretability</td>
+      <td>SHAP</td>
+      <td>Per-prediction explanations for clinical trust</td>
+    </tr>
+    <tr>
+      <td>Drift Monitoring</td>
+      <td>Evidently AI</td>
+      <td>Post deployment monitoring tool</td>
     </tr>
     <tr>
       <td>API Layer</td>
       <td>FastAPI</td>
-      <td>Async, lightweight, easy to document</td>
+      <td>Async, lightweight backend for model serving</td>
+    </tr>
+    <tr>
+      <td>Dashboard</td>
+      <td>Streamlit</td>
+      <td>Rapid interactive EDA without frontend overhead</td>
     </tr>
     <tr>
       <td>Frontend</td>
       <td>Next.js (React + Tailwind)</td>
-      <td>Component-based UI with utility styling</td>
+      <td>Modern, responsive web app for model inference</td>
+    </tr>
+    <tr>
+      <td>Cloud Storage</td>
+      <td>Google Cloud Storage</td>
+      <td>Centralized data storage accessible across pipeline stages</td>
     </tr>
   </tbody>
 </table>
 <hr>
 <h2 id="development-journey">Development Journey</h2>
 <h3 id="phase-1-research--prototyping">Phase 1: Research &amp; Prototyping</h3>
-<p>Having no prior exposure to industrial technologies, I started with a research phase to build foundational understanding. I studied Node-RED and related industrial concepts including Modbus, PLCs, and IIoT. Node-RED stood out as a widely adopted standard in the industry, and I became interested in connecting it to an AI system using Python. During this phase I also discovered the pymodbus library, an open-source Python implementation of the Modbus protocol, which became a key part of the integration.</p>
+<p>The project began with understanding the BPJS dataset structure, which consists of three separate data sources: Peserta (patient demographics), FKTP (primary care records), and FKRTL (hospital inpatient records). Before writing any model code, I spent time understanding how these tables relate to each other through patient and visit identifiers, and how readmission events are defined. I also researched best practices for healthcare ML, particularly around class imbalance and the risk of temporal data leakage, since these are common pitfalls specific to clinical prediction problems.</p>
 <h3 id="phase-2-core-implementation">Phase 2: Core Implementation</h3>
-<p>The original design relied on tool-calling to let the AI agent fetch and analyze active Node-RED flows. However, this approach proved unreliable with locally hosted models given my hardware constraints. I revised the architecture so that FastAPI fetches the active flow directly, returns the data as JSON, and passes it to the model for analysis. This made the pipeline deterministic and consistent.
-To validate detection capability, I implemented a fault injection mechanism that deliberately introduces flaws into Node-RED flows. These faults ranged from missing connections between nodes, incorrect data type mappings, and misconfigured Modbus register addresses to logical errors such as inverted conditional branches and missing error-handling nodes. The injected flows were then passed through the analysis pipeline to test whether the model could correctly identify and describe each flaw. This approach allowed systematic validation without touching any production environment, keeping the testing process entirely self-contained.</p>
+<p>The pipeline was built in stages using DVC (data is tracked using S3 DVC remote), so each step from data loading to model evaluation could be run independently and reproduced consistently. Raw data was stored in Google Cloud Storage and loaded into the pipeline at the first stage, mimicking how a production system would pull from a centralized data lake. DVC remote storage was configured on Amazon S3 (Dagshub), which meant the full pipeline state including data, intermediate artifacts, and model files could be versioned and restored consistently across environments. This setup was a deliberate choice to simulate the infrastructure patterns used in real production ML projects, even though the scale here is a research dataset. Data validation using Great Expectations was introduced early in the pipeline to catch schema issues and missing values before they could silently corrupt downstream features. Feature engineering drew from all three data sources, producing temporal features such as visit frequency and length of stay, as well as patient-level features covering demographics, insurance class, and geographic location. XGBoost was selected as the model due to its proven performance on tabular healthcare data and its built-in support for handling class imbalance through the <code>scale_pos_weight</code> parameter. Hyperparameter optimization was performed using Optuna with cross-validation, and all experiments were tracked in MLflow via DagsHub.</p>
 <h3 id="phase-3-testing--iteration">Phase 3: Testing &amp; Iteration</h3>
-<p>Testing was conducted by compiling a list of known flaws and verifying whether the model correctly identified each one. This approach confirmed the system&rsquo;s detection capability, though automated evaluation has not yet been implemented.</p>
+<p>Model evaluation focused on recall as the primary metric, since missing a patient at risk of readmission carries a higher clinical cost than a false positive. Several techniques for handling class imbalance were tested, including SMOTE and undersampling, and compared against the baseline <code>scale_pos_weight</code> approach. The final model was evaluated on a held-out test set split by discharge date to prevent leakage of future information into training. SHAP values were computed to validate that the model&rsquo;s decisions were grounded in clinically meaningful features rather than spurious correlations.</p>
 <hr>
 <h2 id="challenges--how-i-solved-them">Challenges &amp; How I Solved Them</h2>
-<p><strong>Challenge 1: Inconsistent tool calling with local LLMs</strong>
-Getting a locally hosted LLM to call tools reliably was more difficult than anticipated. Hardware limitations, specifically available memory and RAM, made it hard to run a model large enough to handle tool use consistently. To resolve this, I moved tool invocation out of the model entirely: FastAPI now handles all API calls programmatically and supplies the resulting JSON directly to the model for analysis. This change improved reliability significantly and simplified the overall flow.</p>
+<p><strong>Challenge 1: Class imbalance</strong>
+Readmission events represent only about 10 to 15 percent of cases in the dataset, which caused early models to default to predicting no readmission almost universally. To address this, I applied <code>scale_pos_weight</code> in XGBoost to penalize false negatives, experimented with SMOTE for synthetic oversampling of the minority class, used AUC-PR instead of accuracy as the primary evaluation metric, and applied stratified cross-validation to maintain class distribution across folds.</p>
+<p><strong>Challenge 2: Integrating three separate datasets</strong>
+The three data sources had inconsistent column naming and required careful linkage through patient and visit IDs. I implemented a multi-step cleaning process with standardized column names across all files, used temporal alignment to match records by visit date, and applied Featuretools for automated cross-table feature creation. Great Expectations validation rules were added at the joining stage to flag any records that failed to link correctly.</p>
+<p><strong>Challenge 3: Preventing temporal data leakage</strong>
+Because this is a time-series prediction problem, using information from after a patient&rsquo;s discharge date in the training set would produce misleadingly high performance metrics. I enforced a time-based train/test split at the 80th percentile of discharge dates, and carefully reviewed all engineered features to ensure only historical information was used.</p>
+<p><strong>Challenge 4: Making predictions explainable</strong>
+Healthcare models face a higher bar for adoption because clinicians need to understand and trust the predictions. I addressed this by computing SHAP values for individual predictions, exposing feature importance scores through the API, and including a confusion matrix visualization in the dashboard to help clinical users understand the model&rsquo;s error profile.</p>
+<p><strong>Challenge 5: Monitoring model health after deployment</strong>
+A deployed model can silently degrade over time if the incoming data distribution shifts away from what it was trained on. To address this, I integrated Evidently AI to monitor data drift across the feature set. Evidently generates statistical reports comparing the training data distribution against incoming inference data, flagging features where drift is detected. This means the system can signal when a model retrain may be needed, rather than relying on manual inspection of prediction quality.</p>
 <hr>
 <h2 id="results--impact">Results &amp; Impact</h2>
-<p>Be concrete. Numbers &gt; adjectives.</p>
 <ul>
-<li>Reduced flow analysis time by 60%</li>
-<li>Detected 90% of introduced flaws across test cases</li>
+<li>ROC-AUC of 0.956 on the held-out test set</li>
+<li>Recall of 92.3%, identifying 923 out of every 1,000 actual readmission cases</li>
+<li>Only 54 missed readmission cases out of 703 in the test set</li>
+<li>Precision of 45.1%, an acceptable tradeoff for a high-sensitivity screening tool</li>
+<li>F1-Score of 0.606 on the positive class, with a Macro F1-Score of 0.756</li>
 </ul>
 <hr>
 <h2 id="what-i-learned">What I Learned</h2>
-<p>This project highlighted how hardware constraints directly shape the design decisions of locally hosted AI systems. A model that performs well on a cloud server may behave inconsistently when run on a consumer machine with limited RAM, which pushed me to design around reliability rather than assuming the model would always behave as expected. I also gained practical experience in prompt engineering, learning how to structure inputs that produce consistent, useful outputs aligned with user needs. Beyond the technical side, this project taught me the value of pivoting early when an architectural decision proves fragile. Switching from tool-calling to a programmatic pipeline was a significant change, but making it sooner rather than later saved considerable debugging time and produced a more robust system overall.</p>
+<p>This project was my first experience building a machine learning pipeline at something close to a production scale. Working with three linked datasets taught me that data integration and validation are often harder than model training itself. I learned how easy it is to introduce data leakage in time-series problems, and how important it is to design the train/test split before touching any features. Using DVC for pipeline orchestration also changed how I think about ML projects: treating each stage as a reproducible unit made iteration much faster and debugging significantly easier. On the modeling side, I gained a deeper understanding of the precision-recall tradeoff and why accuracy is a poor metric for imbalanced clinical datasets. Setting up GCS for data storage and S3 as a DVC remote also gave me hands-on experience with cloud infrastructure that I had only read about before. Connecting these pieces together, versioned data on S3, experiment tracking on DagsHub, and drift monitoring via Evidently, made the project feel substantially closer to how ML systems are maintained in practice compared to a notebook-only workflow.</p>
 <hr>
 <h2 id="future-work">Future Work</h2>
 <ul>
-<li>Implement structured model evaluation with automated metrics</li>
-<li>Optimize inference speed for more responsive analysis</li>
-<li>Explore lightweight quantized models that can run reliably within tighter memory budgets</li>
-<li>Add a feedback loop so flagged faults can be reviewed and used to refine future prompts and detection logic</li>
+<li>Integrate real-time patient data ingestion so the model can score patients at the point of discharge rather than in batch</li>
+<li>Expand the feature set to include medication records and lab results, which are strong predictors of readmission in clinical literature</li>
+<li>Evaluate fairness metrics across demographic groups to ensure the model does not systematically under-serve any patient population</li>
 </ul>
 <hr>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/FrienDotJava/manufacture-security">GitHub Repository</a></li>
+<li><a href="https://github.com/FrienDotJava/bpjs-hospital-readmission">GitHub Repository</a></li>
+<li><a href="https://bpjs-eda-report.streamlit.app/">EDA Dashboard</a></li>
+<li><a href="https://bpjs-next-app.vercel.app/">Model Inference App</a></li>
+<li><a href="https://bpjs-readmission-api.onrender.com/">API (Deployed on Render)</a></li>
 </ul>
 
         </div>
