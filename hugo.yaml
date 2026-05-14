@@ -245,13 +245,29 @@ params:
     enable: true
     # title: "Custom Name"
     items:
+      - title: AskPeraturan OJK
+        content: A RAG (Retrieval-Augmented Generation) application that answers questions about OJK (Otoritas Jasa Keuangan) regulations in Bahasa Indonesia. The system retrieves relevant content from official OJK regulatory documents and generates grounded, cited answers using a large language model.
+        image: /images/projects/ojk.png
+        slug: askperaturan-ojk
+        featured:
+          name: Demo
+          link: https://ask-peraturan-ojk.vercel.app/
+        badges:
+          - "RAG"
+          - "LangChain"
+          - "LangGraph"
+          - "RAGAS"
+          - "Docker"
+          - "CI/CD"
+          - "VPS/nginx"
+        links:
+          - icon: fab fa-github
+            url: https://github.com/FrienDotJava/ask-peraturan-ojk
+
       - title: FlowGuard AI
         content: This project simulates a real-world manufacturing environment where an AI agent continuously monitors and audits industrial automation logic for security vulnerabilities and logic flaws.
         image: /images/projects/flowguard.png
         slug: flowguard-ai
-        featured:
-          name: Demo
-          link: https://hugo-profile.netlify.app
         badges:
           - "AI Agent"
           - "Node-RED"
@@ -287,6 +303,7 @@ params:
       - title: Multilingual Translator (Local Indonesia languages to Bahasa Indonesia)
         content: I fine-tuned LLMs to translate 5 local languages in Indonesia (Javanese, Balinese, Minangkabau, Sundanese, and Dayak) to Bahasa Indonesia.
         image: /images/projects/translator.png
+        slug: multilingual-translator
         featured:
           name: Demo
           link: https://multilingual-nmt-demo.streamlit.app/
@@ -295,6 +312,7 @@ params:
           - "Transformer"
           - "Machine Translation"
           - "HuggingFace"
+          - "PyTorch"
 
       - title: Product Recommendation System
         content: Product recommendation system built using anime dataset as a proxy. Users can rate anime they have watched, and the system will generate new recommendations based on their ratings.

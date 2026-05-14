@@ -303,7 +303,7 @@
         <div class="project-content default-font">
           <h2 id="overview">Overview</h2>
 <p>FlowGuard AI is a system that simulates a real-world manufacturing environment where an AI agent continuously monitors and audits industrial automation logic for security vulnerabilities and logic flaws.</p>
-<h2 id="hahahugoshortcode6s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<h2 id="hahahugoshortcode36s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
       <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/SWnxta0uE7A?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 </h2>
@@ -364,7 +364,7 @@ To validate detection capability, I implemented a fault injection mechanism that
 <p>Testing was conducted by compiling a list of known flaws and verifying whether the model correctly identified each one. This approach confirmed the system&rsquo;s detection capability, though automated evaluation has not yet been implemented.</p>
 <hr>
 <h2 id="challenges--how-i-solved-them">Challenges &amp; How I Solved Them</h2>
-<p><strong>Challenge 1: Inconsistent tool calling with local LLMs</strong>
+<p><strong>Challenge 1: Inconsistent tool calling with local LLMs</strong><br>
 Getting a locally hosted LLM to call tools reliably was more difficult than anticipated. Hardware limitations, specifically available memory and RAM, made it hard to run a model large enough to handle tool use consistently. To resolve this, I moved tool invocation out of the model entirely: FastAPI now handles all API calls programmatically and supplies the resulting JSON directly to the model for analysis. This change improved reliability significantly and simplified the overall flow.</p>
 <hr>
 <h2 id="results--impact">Results &amp; Impact</h2>

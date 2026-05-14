@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLLB on Frendy</title>
+    <link>http://localhost:1313/tags/nllb/</link>
+    <description>Recent content in NLLB on Frendy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nllb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multilingual Translator</title>
+      <link>http://localhost:1313/projects/multilingual-translator/</link>
+      <pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/multilingual-translator/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This project is my undergraduate thesis. I fine-tuned three multilingual Transformer models (mT5, ByT5, and NLLB) to translate five local Indonesian languages to Bahasa Indonesia, and compared their performance against bilingual baselines. The goal was to show that a multilingual approach can outperform training one model per language pair, even when working with limited data.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;Indonesia has over 700 local languages, but UNESCO reports that 139 of them are at risk of extinction. One contributing factor is the lack of digital support for these languages. When a language disappears from the digital space, it loses visibility and becomes harder to preserve.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

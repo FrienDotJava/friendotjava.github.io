@@ -121,19 +121,19 @@ Model evaluation focused on recall as the primary metric, since missing a patien
 
 ## Challenges & How I Solved Them
 
-**Challenge 1: Class imbalance**
+**Challenge 1: Class imbalance**  
 Readmission events represent only about 10 to 15 percent of cases in the dataset, which caused early models to default to predicting no readmission almost universally. To address this, I applied `scale_pos_weight` in XGBoost to penalize false negatives, experimented with SMOTE for synthetic oversampling of the minority class, used AUC-PR instead of accuracy as the primary evaluation metric, and applied stratified cross-validation to maintain class distribution across folds.
 
-**Challenge 2: Integrating three separate datasets**
+**Challenge 2: Integrating three separate datasets**  
 The three data sources had inconsistent column naming and required careful linkage through patient and visit IDs. I implemented a multi-step cleaning process with standardized column names across all files, used temporal alignment to match records by visit date, and applied Featuretools for automated cross-table feature creation. Great Expectations validation rules were added at the joining stage to flag any records that failed to link correctly.
 
-**Challenge 3: Preventing temporal data leakage**
+**Challenge 3: Preventing temporal data leakage**  
 Because this is a time-series prediction problem, using information from after a patient's discharge date in the training set would produce misleadingly high performance metrics. I enforced a time-based train/test split at the 80th percentile of discharge dates, and carefully reviewed all engineered features to ensure only historical information was used.
 
-**Challenge 4: Making predictions explainable**
+**Challenge 4: Making predictions explainable**  
 Healthcare models face a higher bar for adoption because clinicians need to understand and trust the predictions. I addressed this by computing SHAP values for individual predictions, exposing feature importance scores through the API, and including a confusion matrix visualization in the dashboard to help clinical users understand the model's error profile.
 
-**Challenge 5: Monitoring model health after deployment**
+**Challenge 5: Monitoring model health after deployment**  
 A deployed model can silently degrade over time if the incoming data distribution shifts away from what it was trained on. To address this, I integrated Evidently AI to monitor data drift across the feature set. Evidently generates statistical reports comparing the training data distribution against incoming inference data, flagging features where drift is detected. This means the system can signal when a model retrain may be needed, rather than relying on manual inspection of prediction quality.
 
 ---

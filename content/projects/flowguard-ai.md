@@ -82,7 +82,7 @@ Testing was conducted by compiling a list of known flaws and verifying whether t
 
 ## Challenges & How I Solved Them
 
-**Challenge 1: Inconsistent tool calling with local LLMs**
+**Challenge 1: Inconsistent tool calling with local LLMs**  
 Getting a locally hosted LLM to call tools reliably was more difficult than anticipated. Hardware limitations, specifically available memory and RAM, made it hard to run a model large enough to handle tool use consistently. To resolve this, I moved tool invocation out of the model entirely: FastAPI now handles all API calls programmatically and supplies the resulting JSON directly to the model for analysis. This change improved reliability significantly and simplified the overall flow.
 
 ---

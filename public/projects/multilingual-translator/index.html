@@ -28,25 +28,26 @@
 
 
 
-<meta property="og:url" content="http://localhost:1313/projects/readmission-prediction/">
+<meta property="og:url" content="http://localhost:1313/projects/multilingual-translator/">
   <meta property="og:site_name" content="Frendy">
-  <meta property="og:title" content="BPJS Hospital Readmission Prediction">
-  <meta property="og:description" content="A production-grade ML pipeline predicting 30-day hospital readmission risk for BPJS patients.">
+  <meta property="og:title" content="Multilingual Translator">
+  <meta property="og:description" content="Fine-tuning multilingual Transformer models to translate Javanese, Sundanese, Balinese, Minangkabau, and Dayak Maanyan to Bahasa Indonesia.">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
-    <meta property="article:published_time" content="2026-05-06T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-06T00:00:00+00:00">
-    <meta property="article:tag" content="Machine Learning">
-    <meta property="article:tag" content="XGBoost">
-    <meta property="article:tag" content="FastAPI">
+    <meta property="article:published_time" content="2026-05-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-05-14T00:00:00+00:00">
+    <meta property="article:tag" content="HuggingFace">
+    <meta property="article:tag" content="PyTorch">
     <meta property="article:tag" content="Streamlit">
-    <meta property="article:tag" content="Next.js">
+    <meta property="article:tag" content="MT5">
+    <meta property="article:tag" content="ByT5">
+    <meta property="article:tag" content="NLLB">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="BPJS Hospital Readmission Prediction">
-  <meta name="twitter:description" content="A production-grade ML pipeline predicting 30-day hospital readmission risk for BPJS patients.">
+  <meta name="twitter:title" content="Multilingual Translator">
+  <meta name="twitter:description" content="Fine-tuning multilingual Transformer models to translate Javanese, Sundanese, Balinese, Minangkabau, and Dayak Maanyan to Bahasa Indonesia.">
 
 
 
@@ -300,28 +301,30 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-12 col-md-10 col-lg-9">
-        <h1>BPJS Hospital Readmission Prediction</h1>
+        <h1>Multilingual Translator</h1>
         <hr>
         <div class="project-content default-font">
           <h2 id="overview">Overview</h2>
-<p>This project builds a machine learning system to predict 30-day hospital readmission risk for patients enrolled in BPJS, Indonesia&rsquo;s national health insurance program. The system includes a full ML pipeline from raw data to model serving, an interactive EDA dashboard, and a web application for real-time inference.</p>
-<h2 id="hahahugoshortcode35s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LL41NgKK4Q8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+<p>This project is my undergraduate thesis. I fine-tuned three multilingual Transformer models (mT5, ByT5, and NLLB) to translate five local Indonesian languages to Bahasa Indonesia, and compared their performance against bilingual baselines. The goal was to show that a multilingual approach can outperform training one model per language pair, even when working with limited data.</p>
+<h2 id="hahahugoshortcode40s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/1faZ8aFsjxw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
     </div>
 </h2>
 <h2 id="the-problem">The Problem</h2>
-<p>Hospital readmission within 30 days of discharge is a key indicator of healthcare quality and patient outcomes. For insurance providers like BPJS, unplanned readmissions represent a significant cost burden and often signal gaps in post-discharge care. Identifying high-risk patients before they are discharged allows healthcare providers to intervene early, coordinate follow-up care, and allocate resources more effectively. This project addresses that problem by developing a predictive model trained on historical BPJS patient data, covering demographics, primary care visits, and inpatient hospitalization records.</p>
+<p>Indonesia has over 700 local languages, but UNESCO reports that 139 of them are at risk of extinction. One contributing factor is the lack of digital support for these languages. When a language disappears from the digital space, it loses visibility and becomes harder to preserve.</p>
+<p>Machine translation is one way to keep local languages alive in the digital world. However, most existing research only covers a single language pair at a time, and the translation quality is still low. Average BLEU scores for local Indonesian language pairs sit around 10 to 30, far below what is common for high-resource languages. The situation is even worse for very low-resource languages like Dayak Maanyan, which has almost no prior NMT research at all.</p>
+<p>This project addresses that gap by training multilingual models that cover five local languages at once, and by running a structured comparison of three different Transformer architectures under the same conditions.</p>
 <hr>
 <h2 id="goals--scope">Goals &amp; Scope</h2>
 <ul>
-<li>Build a predictive model for 30-day readmission risk using historical BPJS patient data</li>
-<li>Analyze patient demographics, visit patterns, and clinical factors that contribute to readmission</li>
-<li>Identify the key drivers of readmission to support clinical interpretation</li>
-<li>Provide accessible interfaces for model inference and data exploration</li>
+<li>Develop and fine-tune multilingual NMT models based on Transformer architecture to translate five local Indonesian languages to Bahasa Indonesia under low-resource conditions</li>
+<li>Compare the performance of multilingual models against bilingual (one language pair per model) baselines</li>
+<li>Determine which Transformer model (mT5, ByT5, or NLLB) performs best for low-resource local language translation</li>
+<li>Reach a minimum average BLEU score of 40 across all translation scenarios</li>
 </ul>
 <hr>
 <h2 id="system-design--architecture">System Design &amp; Architecture</h2>
-<img src="/images/projects/bpjs/arch.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
+<img src="/images/projects/translator.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
 <hr>
 <h2 id="tech-stack">Tech Stack</h2>
 <table class="table table-bordered mt-3 text-light">
@@ -334,113 +337,97 @@
   </thead>
   <tbody>
     <tr>
-      <td>ML Model</td>
-      <td>XGBoost</td>
-      <td>Strong performance on tabular healthcare data, built-in feature importance</td>
+      <td>Data Preprocessing</td>
+      <td>Pandas</td>
+      <td>Flexible data manipulation for merging and cleaning multi-sheet Excel files</td>
     </tr>
     <tr>
-      <td>Pipeline Orchestration</td>
-      <td>DVC</td>
-      <td>Reproducible ML pipeline with dependency tracking</td>
+      <td>Models</td>
+      <td>mT5, ByT5, NLLB (via HuggingFace)</td>
+      <td>Three architecturally distinct multilingual Transformers for a fair comparative study</td>
     </tr>
     <tr>
-      <td>Experiment Tracking</td>
-      <td>MLflow + DagsHub</td>
-      <td>Centralized logging of runs, metrics, and model versions</td>
+      <td>Training Framework</td>
+      <td>HuggingFace Transformers + PyTorch</td>
+      <td>Industry-standard tools for fine-tuning and managing pretrained language models</td>
     </tr>
     <tr>
-      <td>Data Validation</td>
-      <td>Great Expectations</td>
-      <td>Automated data quality checks at each pipeline stage</td>
+      <td>Evaluation</td>
+      <td>SacreBLEU + Evaluate</td>
+      <td>Standard metrics (BLEU and Chrf++) for measuring translation quality</td>
     </tr>
     <tr>
-      <td>Feature Engineering</td>
-      <td>Featuretools</td>
-      <td>Automated multi-table feature creation across linked datasets</td>
+      <td>Compute</td>
+      <td>Google Colaboratory (NVIDIA Tesla H100)</td>
+      <td>Cloud GPU access for running large model training without local hardware</td>
     </tr>
     <tr>
-      <td>Hyperparameter Tuning</td>
-      <td>Optuna</td>
-      <td>Fast and automated hyperparameter tuning</td>
-    </tr>
-    <tr>
-      <td>Interpretability</td>
-      <td>SHAP</td>
-      <td>Per-prediction explanations for clinical trust</td>
-    </tr>
-    <tr>
-      <td>Drift Monitoring</td>
-      <td>Evidently AI</td>
-      <td>Post deployment monitoring tool</td>
-    </tr>
-    <tr>
-      <td>API Layer</td>
-      <td>FastAPI</td>
-      <td>Async, lightweight backend for model serving</td>
-    </tr>
-    <tr>
-      <td>Dashboard</td>
+      <td>Inference App</td>
       <td>Streamlit</td>
-      <td>Rapid interactive EDA without frontend overhead</td>
+      <td>Fast to build, integrates directly with HuggingFace and PyTorch for live demo</td>
     </tr>
     <tr>
-      <td>Frontend</td>
-      <td>Next.js (React + Tailwind)</td>
-      <td>Modern, responsive web app for model inference</td>
-    </tr>
-    <tr>
-      <td>Cloud Storage</td>
-      <td>Google Cloud Storage</td>
-      <td>Centralized data storage accessible across pipeline stages</td>
+      <td>Model Hosting</td>
+      <td>HuggingFace Hub</td>
+      <td>Easy public deployment of the fine-tuned model for online access</td>
     </tr>
   </tbody>
 </table>
 <hr>
 <h2 id="development-journey">Development Journey</h2>
 <h3 id="phase-1-research--prototyping">Phase 1: Research &amp; Prototyping</h3>
-<p>The project began with understanding the BPJS dataset structure, which consists of three separate data sources: Peserta (patient demographics), FKTP (primary care records), and FKRTL (hospital inpatient records). Before writing any model code, I spent time understanding how these tables relate to each other through patient and visit identifiers, and how readmission events are defined. I also researched best practices for healthcare ML, particularly around class imbalance and the risk of temporal data leakage, since these are common pitfalls specific to clinical prediction problems.</p>
+<p>The project started with a literature review to understand the current state of NMT for local Indonesian languages. Most prior work trained a separate model for each language pair and reported low BLEU scores, typically between 10 and 30. I identified three research gaps: the dominance of bilingual approaches, the near-total absence of NMT research on Dayak Maanyan, and the lack of any structured comparison between mT5, ByT5, and NLLB on the same dataset and conditions.</p>
+<p>I also studied the architectural differences between the three models. mT5 is a general-purpose multilingual text-to-text model pretrained on 101 languages. ByT5 skips subword tokenization entirely and operates on raw UTF-8 bytes, making it potentially stronger for morphologically rich or non-standard text. NLLB (No Language Left Behind), developed by Meta AI, is a translation-dedicated model built specifically for low-resource languages and supports over 200 languages directly without using a pivot language like English.</p>
 <h3 id="phase-2-core-implementation">Phase 2: Core Implementation</h3>
-<p>The pipeline was built in stages using DVC (data is tracked using S3 DVC remote), so each step from data loading to model evaluation could be run independently and reproduced consistently. Raw data was stored in Google Cloud Storage and loaded into the pipeline at the first stage, mimicking how a production system would pull from a centralized data lake. DVC remote storage was configured on Amazon S3 (Dagshub), which meant the full pipeline state including data, intermediate artifacts, and model files could be versioned and restored consistently across environments. This setup was a deliberate choice to simulate the infrastructure patterns used in real production ML projects, even though the scale here is a research dataset. Data validation using Great Expectations was introduced early in the pipeline to catch schema issues and missing values before they could silently corrupt downstream features. Feature engineering drew from all three data sources, producing temporal features such as visit frequency and length of stay, as well as patient-level features covering demographics, insurance class, and geographic location. XGBoost was selected as the model due to its proven performance on tabular healthcare data and its built-in support for handling class imbalance through the <code>scale_pos_weight</code> parameter. Hyperparameter optimization was performed using Optuna with cross-validation, and all experiments were tracked in MLflow via DagsHub.</p>
+<p>The dataset was provided by a research team funded by the Ministry of Culture. It contains approximately 4,000 parallel sentence pairs per language, covering Javanese, Sundanese, Balinese, Minangkabau, and Dayak Maanyan paired with Bahasa Indonesia. The raw data was stored in Excel files with one sheet per language.</p>
+<p>Data preprocessing involved merging all sheets into a single CSV, removing empty rows, normalizing Unicode (NFD normalization to strip diacritics), standardizing punctuation, and removing extra whitespace. Language tags were then added to each sentence so the model could identify the source and target language during training.</p>
+<p>Feature engineering focused on two things: tokenization strategy and language tag insertion. Each model uses a different tokenizer. mT5 and NLLB use SentencePiece subword tokenization with large vocabulary sizes (around 250,000 tokens). ByT5 tokenizes at the byte level, meaning every character is broken into its UTF-8 bytes. This makes ByT5 immune to out-of-vocabulary problems, since it never encounters a truly unknown token.</p>
+<p>All three models were fine-tuned using supervised learning with cross-entropy loss, training for up to 20 epochs with early stopping based on Chrf++ validation score. I ran two scenarios: one-directional (local language to Bahasa Indonesia only) and bidirectional (both directions). For the baseline comparison, each model was also trained separately on individual language pairs.</p>
 <h3 id="phase-3-testing--iteration">Phase 3: Testing &amp; Iteration</h3>
-<p>Model evaluation focused on recall as the primary metric, since missing a patient at risk of readmission carries a higher clinical cost than a false positive. Several techniques for handling class imbalance were tested, including SMOTE and undersampling, and compared against the baseline <code>scale_pos_weight</code> approach. The final model was evaluated on a held-out test set split by discharge date to prevent leakage of future information into training. SHAP values were computed to validate that the model&rsquo;s decisions were grounded in clinically meaningful features rather than spurious correlations.</p>
+<p>Model evaluation used BLEU and Chrf++ as the primary metrics. BLEU measures word-level n-gram overlap between the model output and the reference translation. Chrf++ adds character-level n-gram scoring and is more sensitive to morphological variation, which matters a lot for languages like Javanese and Balinese.</p>
+<p>Training curves were analyzed for each model. mT5 showed the most stable convergence, with training and validation loss moving closely together. ByT5 triggered early stopping at epoch 12 in both scenarios due to mild overfitting. NLLB ran all 20 epochs without early stopping, as its validation loss continued to decrease gradually throughout, though a widening gap between training and validation loss indicated some degree of overfitting, especially in the bidirectional scenario.</p>
+<p>Statistical significance tests were conducted using SacreBLEU to confirm that performance differences between models were not due to random variation.</p>
 <hr>
 <h2 id="challenges--how-i-solved-them">Challenges &amp; How I Solved Them</h2>
-<p><strong>Challenge 1: Class imbalance</strong><br>
-Readmission events represent only about 10 to 15 percent of cases in the dataset, which caused early models to default to predicting no readmission almost universally. To address this, I applied <code>scale_pos_weight</code> in XGBoost to penalize false negatives, experimented with SMOTE for synthetic oversampling of the minority class, used AUC-PR instead of accuracy as the primary evaluation metric, and applied stratified cross-validation to maintain class distribution across folds.</p>
-<p><strong>Challenge 2: Integrating three separate datasets</strong><br>
-The three data sources had inconsistent column naming and required careful linkage through patient and visit IDs. I implemented a multi-step cleaning process with standardized column names across all files, used temporal alignment to match records by visit date, and applied Featuretools for automated cross-table feature creation. Great Expectations validation rules were added at the joining stage to flag any records that failed to link correctly.</p>
-<p><strong>Challenge 3: Preventing temporal data leakage</strong><br>
-Because this is a time-series prediction problem, using information from after a patient&rsquo;s discharge date in the training set would produce misleadingly high performance metrics. I enforced a time-based train/test split at the 80th percentile of discharge dates, and carefully reviewed all engineered features to ensure only historical information was used.</p>
-<p><strong>Challenge 4: Making predictions explainable</strong><br>
-Healthcare models face a higher bar for adoption because clinicians need to understand and trust the predictions. I addressed this by computing SHAP values for individual predictions, exposing feature importance scores through the API, and including a confusion matrix visualization in the dashboard to help clinical users understand the model&rsquo;s error profile.</p>
-<p><strong>Challenge 5: Monitoring model health after deployment</strong><br>
-A deployed model can silently degrade over time if the incoming data distribution shifts away from what it was trained on. To address this, I integrated Evidently AI to monitor data drift across the feature set. Evidently generates statistical reports comparing the training data distribution against incoming inference data, flagging features where drift is detected. This means the system can signal when a model retrain may be needed, rather than relying on manual inspection of prediction quality.</p>
+<p><strong>Challenge 1: Very limited training data per language</strong><br>
+With only around 4,000 sentence pairs per language, models with large parameter counts like NLLB (600 million parameters) and ByT5 are prone to memorizing training data rather than learning general patterns. I addressed this by applying early stopping based on the best validation Chrf++ score, so the saved model weights always correspond to the best generalization point rather than the final epoch. Training all five languages together in the multilingual setup also acted as implicit regularization, since the model was exposed to a much larger and more varied dataset overall.</p>
+<p><strong>Challenge 2: Tokenization mismatch for low-resource languages</strong><br>
+Subword tokenizers like SentencePiece are trained on large multilingual corpora, so rare languages like Dayak Maanyan may be underrepresented in the vocabulary. This leads to excessive fragmentation of words into many small subword pieces, which hurts the quality of semantic representation. ByT5 sidesteps this entirely by processing raw bytes, so it never fragments a word in a way that loses meaning. For mT5 and NLLB, I monitored vocabulary coverage during data exploration and used the SentencePiece tokenizers with truncation set to the optimal max_length derived from sentence length distribution analysis.</p>
+<p><strong>Challenge 3: Language interference in multilingual training</strong><br>
+When training a single model on five languages simultaneously, there is a risk that higher-resource languages dominate and the model produces outputs that mix languages. To prevent this, I added explicit language identification tokens to each input sentence. For NLLB, this was handled through its built-in Language ID token system (for example, <code>jav_Latn</code> for Javanese and <code>sun_Latn</code> for Sundanese). For mT5 and ByT5, custom language tags were prepended to each source sentence. This approach ensured the decoder could always generate text in the correct target language.</p>
+<p><strong>Challenge 4: Comparing models with very different architectures fairly</strong><br>
+mT5, ByT5, and NLLB have different parameter counts, tokenization strategies, and pretraining objectives. To make the comparison as fair as possible, I used the same dataset splits, the same training hyperparameters, the same evaluation metrics, and the same compute environment (Google Colab with H100 GPU) for all three models. Both multilingual and bilingual (baseline) scenarios were run for each model so that the benefit of the multilingual approach could be measured independently of architecture differences.</p>
 <hr>
 <h2 id="results--impact">Results &amp; Impact</h2>
-<ul>
-<li>ROC-AUC of 0.956 on the held-out test set</li>
-<li>Recall of 92.3%, identifying 923 out of every 1,000 actual readmission cases</li>
-<li>Only 54 missed readmission cases out of 703 in the test set</li>
-<li>Precision of 45.1%, an acceptable tradeoff for a high-sensitivity screening tool</li>
-<li>F1-Score of 0.606 on the positive class, with a Macro F1-Score of 0.756</li>
-</ul>
+<p><strong>Multilingual vs. Baseline (Bilingual)</strong><br>
+The multilingual approach outperformed the bilingual baseline across all three models and both evaluation metrics. The largest BLEU gain was seen in mT5, which improved by 5.01 points (from 56.99 to 62.01). ByT5 gained 4.70 points and NLLB gained 4.64 points. This confirms that cross-lingual transfer, where the model borrows knowledge from linguistically similar languages, helps even when the languages are distinct.</p>
+<p><strong>Overall Best Model: NLLB</strong><br>
+NLLB achieved the highest overall scores in the one-directional scenario with a BLEU of 75.18 and Chrf++ of 86.23. It was the most robust model across the majority of language pairs, particularly for Javanese, Sundanese, and Balinese, which have more prior multilingual representation in NLLB&rsquo;s pretraining data.</p>
+<p><strong>ByT5 Shines on Low-Resource and Morphologically Complex Languages</strong><br>
+ByT5 outperformed NLLB on Minangkabau and Dayak Maanyan. For Minangkabau to Bahasa Indonesia, ByT5 reached a BLEU of 79.51. For Dayak Maanyan to Bahasa Indonesia, ByT5 reached a BLEU of 72.91, well above what was expected for a language with almost no prior NMT research. The byte-level approach made ByT5 more adaptive to languages with non-standard morphology and limited training data.</p>
+<p><strong>mT5 as a Competitive General-Purpose Option</strong><br>
+mT5 had the lowest scores overall but showed the most stable training curves with minimal overfitting. As a general-purpose model not specialized for translation, it still delivered competitive results and showed the largest relative gain from the multilingual setup.</p>
+<p>All three models exceeded the minimum BLEU target of 40, with average scores well above that threshold.</p>
 <hr>
 <h2 id="what-i-learned">What I Learned</h2>
-<p>This project was my first experience building a machine learning pipeline at something close to a production scale. Working with three linked datasets taught me that data integration and validation are often harder than model training itself. I learned how easy it is to introduce data leakage in time-series problems, and how important it is to design the train/test split before touching any features. Using DVC for pipeline orchestration also changed how I think about ML projects: treating each stage as a reproducible unit made iteration much faster and debugging significantly easier. On the modeling side, I gained a deeper understanding of the precision-recall tradeoff and why accuracy is a poor metric for imbalanced clinical datasets. Setting up GCS for data storage and S3 as a DVC remote also gave me hands-on experience with cloud infrastructure that I had only read about before. Connecting these pieces together, versioned data on S3, experiment tracking on DagsHub, and drift monitoring via Evidently, made the project feel substantially closer to how ML systems are maintained in practice compared to a notebook-only workflow.</p>
+<p>This project was my first experience conducting research at a scale close to production NLP work. A few things stood out.</p>
+<p>Data quality and preprocessing mattered more than I initially expected. Normalizing Unicode characters and adding language tags seemed like minor steps, but removing diacritics and standardizing punctuation had a measurable effect on tokenization quality.</p>
+<p>The choice of evaluation metric changes the story. BLEU and Chrf++ sometimes disagreed on which model performed better for a given language pair. BLEU penalizes any word that does not exactly match the reference, while Chrf++ gives partial credit for character-level overlap. For morphologically rich languages, Chrf++ gave a more nuanced picture of translation quality.</p>
+<p>Architecture matters as much as model size. NLLB has 600 million parameters, but ByT5 outperformed it on Dayak Maanyan despite having fewer parameters and no translation-specific pretraining. The byte-level approach was simply a better fit for the linguistic characteristics of that language.</p>
+<p>Running bilingual baselines alongside the multilingual experiments was one of the most valuable parts of the project. Without that comparison, it would be impossible to isolate how much of the performance came from the multilingual training strategy versus the pretrained model weights.</p>
 <hr>
 <h2 id="future-work">Future Work</h2>
 <ul>
-<li>Integrate real-time patient data ingestion so the model can score patients at the point of discharge rather than in batch</li>
-<li>Expand the feature set to include medication records and lab results, which are strong predictors of readmission in clinical literature</li>
-<li>Evaluate fairness metrics across demographic groups to ensure the model does not systematically under-serve any patient population</li>
+<li>Expand the dataset size and include conversational text, not just news articles, to reduce domain bias</li>
+<li>Evaluate human judgment alongside automatic metrics (BLEU and Chrf++) for a more complete quality assessment</li>
+<li>Explore larger model variants and unsupervised pretraining specifically for Nusantara language families</li>
+<li>Extend coverage to other endangered local languages in Indonesia beyond the five studied here</li>
+<li>Evaluate fairness across dialect variation within each language</li>
 </ul>
 <hr>
 <h2 id="links">Links</h2>
 <ul>
-<li><a href="https://github.com/FrienDotJava/bpjs-hospital-readmission">GitHub Repository</a></li>
-<li><a href="https://bpjs-eda-report.streamlit.app/">EDA Dashboard</a></li>
-<li><a href="https://bpjs-next-app.vercel.app/">Model Inference App</a></li>
-<li><a href="https://bpjs-readmission-api.onrender.com/">API (Deployed on Render)</a></li>
+<li>(Private)</li>
 </ul>
 
         </div>
