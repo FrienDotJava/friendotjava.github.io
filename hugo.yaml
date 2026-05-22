@@ -167,7 +167,7 @@ params:
     title: "About Me"
     image: "/images/me2.jpeg"
     content: |-
-      I have a strong passion for technology and innovation. My interests lie in data scientist and machine learning field, supported by a solid foundation in Python for cleaning, preprocessing, and uncovering insights from data.
+      I am a final-year Informatics student with a strong focus on Machine Learning and MLOps. I specialize in building end-to-end, production-ready pipelines and have a deep interest in Natural Language Processing, particularly Transformer architectures. My background includes bridging the gap between data science research and robust software development.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
@@ -176,7 +176,7 @@ params:
         - "PyTorch"
         - "DVC"
         - "Docker"
-        - "MLFlow"
+        - "MLflow"
         - "HuggingFace"
 
   # Experience
@@ -187,17 +187,20 @@ params:
         company: "PT Kalbe Morinaga Indonesia"
         companyUrl: "https://kalbenutritionals.com/id/produk-kami/morinaga"
         date: "Aug 2025 - Present"
-        content: "Your description here."
+        content: |
+          - Engineer and maintain internal information systems to support digital transformation within a major manufacturing facility.
+          - Key Projects: Developed an Early Warning System for machinery monitoring, a Smart Maintenance System (CBM & PM dashboards), and a comprehensive Work Request analytics module.
+          - Build and design applications utilizing Laravel, MySQL, Laragon, Figma, and GitLab.
+          - Successfully bridged technical development with manufacturing business processes by translating non-IT user requirements into functional digital tools.
 
       - title: "External Code Reviewer"
         company: "Dicoding Indonesia"
         companyUrl: "https://www.dicoding.com/"
         date: "Mar 2025 - Present"
         content: |
-          Your description here.
-
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
+          - Assessed and thoroughly reviewed student project submissions within the Machine Learning and Data Science learning paths.
+          - Provided detailed, actionable feedback on code quality, model implementation, and data processing techniques to foster student skill development.
+          - Ensured all student submissions consistently adhered to industry best practices, coding standards, and the rigorous technical requirements of the curriculum.
 
   # Education
   education:

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
+<link rel="icon" href="/fav.png" type="image/gif">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      media="print" onload="this.media='all'" />
+<noscript>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Alata&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+</noscript>
+
+
+<link rel="stylesheet" href="/css/font.css" media="all">
+
+
+
+<meta property="og:url" content="http://localhost:1313/projects/askperaturan-ojk/">
+  <meta property="og:site_name" content="Frendy">
+  <meta property="og:title" content="AskPeraturan OJK">
+  <meta property="og:description" content="A RAG system that answers questions about OJK financial regulations in Bahasa Indonesia, with hybrid retrieval and agentic web fallback.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-01T00:00:00+00:00">
+    <meta property="article:tag" content="RAG">
+    <meta property="article:tag" content="LangGraph">
+    <meta property="article:tag" content="FastAPI">
+    <meta property="article:tag" content="Next.js">
+    <meta property="article:tag" content="ChromaDB">
+    <meta property="article:tag" content="Mistral">
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AskPeraturan OJK">
+  <meta name="twitter:description" content="A RAG system that answers questions about OJK financial regulations in Bahasa Indonesia, with hybrid retrieval and agentic web fallback.">
+
+
+
+
+
+<link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
+<link rel="stylesheet" href="/css/language-switcher.css" media="all">
+<link rel="stylesheet" href="/css/footer.css" media="all">
+
+
+<link rel="stylesheet" href="/css/theme.css" media="all">
+
+<style>
+    :root {
+        --text-color: #343a40;
+        --text-secondary-color: #6c757d;
+        --text-link-color: #007bff;
+        --background-color: #eaedf0;
+        --secondary-background-color: #64ffda1a;
+        --primary-color: #007bff;
+        --secondary-color: #f8f9fa;
+
+         
+        --text-color-dark: #e4e6eb;
+        --text-secondary-color-dark: #b0b3b8;
+        --text-link-color-dark: #ffffff;
+        --background-color-dark: #18191a;
+        --secondary-background-color-dark: #212529;
+        --primary-color-dark: #ffffff;
+        --secondary-color-dark: #212529;
+    }
+    body {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    html {
+        background-color: var(--background-color) !important;
+    }
+
+    body::-webkit-scrollbar {
+        height: 0px;
+        width: 8px;
+        background-color: var(--background-color);
+    }
+
+    ::-webkit-scrollbar-track {
+        border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background: #b0b0b0;
+        outline: 1px solid var(--background-color);
+    }
+
+    #search-content::-webkit-scrollbar {
+        width: .5em;
+        height: .1em;
+        background-color: var(--background-color);
+    }
+</style>
+
+
+
+<style>
+  .project-content a {
+    color: #7aa6c9;
+    text-decoration-color: rgba(122, 166, 201, 0.55);
+  }
+
+  .project-content a:hover,
+  .project-content a:focus {
+    color: #8cb6d6;
+    text-decoration-color: currentColor;
+  }
+</style>
+
+
+  
+  
+
+  <title>
+  </title>
+</head>
+
+<body class="light">
+  
+  
+<script>
+    let localStorageValue = localStorage.getItem("pref-theme");
+    let mediaQuery = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    switch (localStorageValue) {
+        case "dark":
+            document.documentElement.classList.add('dark');
+            document.body.classList.add('dark');
+            break;
+        case "light":
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            break;
+        default:
+            if (mediaQuery) {
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+            }
+            break;
+    }
+</script>
+
+
+
+
+<script>
+    var prevScrollPos = window.pageYOffset;
+    window.addEventListener("scroll", function showHeaderOnScroll() {
+        let profileHeaderElem = document.getElementById("profileHeader");
+        let currentScrollPos = window.pageYOffset;
+        let resetHeaderStyle = false;
+        let showNavBarOnScrollUp =  true ;
+        let showNavBar = showNavBarOnScrollUp ? prevScrollPos > currentScrollPos : currentScrollPos > 0;
+        if (showNavBar) {
+            profileHeaderElem.classList.add("showHeaderOnTop");
+        } else {
+            resetHeaderStyle = true;
+        }
+        if(currentScrollPos === 0) {
+            resetHeaderStyle = true;
+        }
+        if(resetHeaderStyle) {
+            profileHeaderElem.classList.remove("showHeaderOnTop");
+        }
+        prevScrollPos = currentScrollPos;
+    });
+</script>
+
+
+
+<header id="profileHeader">
+    <nav class="pt-3 navbar navbar-expand-lg animate">
+        <div class="container-fluid mx-xs-2 mx-sm-5 mx-md-5 mx-lg-5">
+            
+            <a class="navbar-brand primary-font text-wrap" href="/">
+                
+                <img src="/fav.png" width="30" height="30"
+                    class="d-inline-block align-top">
+                Frendy
+                
+            </a>
+
+            
+
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <svg aria-hidden="true" height="24" viewBox="0 0 16 16" version="1.1" width="24" data-view-component="true">
+                    <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+                </svg>
+            </button>
+
+            
+            <div class="collapse navbar-collapse text-wrap primary-font" id="navbarContent">
+                <ul class="navbar-nav ms-auto text-center">
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#about" aria-label="about">
+                            About Me
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#experience"
+                            aria-label="experience">
+                            Experience
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#education"
+                            aria-label="education">
+                            Education
+                        </a>
+                    </li>
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#projects"
+                            aria-label="projects">
+                            Projects
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    <li class="nav-item navbar-text">
+                        <a class="nav-link" href="/#contact"
+                            aria-label="contact">
+                            Contact
+                        </a>
+                    </li>
+                    
+
+                    
+
+                    
+                    
+
+                    <li class="nav-item navbar-text">
+                        
+                        <div class="text-center">
+                            <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                                <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                                <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<div id="content">
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-10 col-lg-9">
+        <h1>AskPeraturan OJK</h1>
+        <hr>
+        <div class="project-content default-font">
+          <h2 id="overview">Overview</h2>
+<p>This project is a Retrieval-Augmented Generation (RAG) application that lets users ask questions about OJK (Otoritas Jasa Keuangan) regulations in plain Bahasa Indonesia and get direct, cited answers. The system retrieves relevant content from official POJK regulatory PDFs and generates grounded responses using a large language model, without requiring users to manually search through dense legal documents.</p>
+<h2 id="hahahugoshortcode38s0hbhb"><div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3275c-0z_Bs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+</h2>
+<h2 id="the-problem">The Problem</h2>
+<p>OJK regulations are spread across dozens of POJK documents, each containing complex legal language that is hard to navigate for founders, fintech operators, and compliance teams. Finding a specific rule often means downloading multiple PDFs, skimming through pages of text, and still being unsure if the answer is complete. There was no simple way to just ask a question and get a direct, sourced answer. This project solves that by building a conversational interface on top of the official regulatory documents.</p>
+<hr>
+<h2 id="goals--scope">Goals &amp; Scope</h2>
+<ul>
+<li>Build a question-answering system grounded strictly in official OJK regulatory documents</li>
+<li>Support natural language queries in Bahasa Indonesia with accurate multilingual retrieval</li>
+<li>Ensure answers are always cited and never hallucinated beyond the retrieved context</li>
+<li>Add a web search fallback for cases where the local knowledge base is insufficient</li>
+<li>Evaluate the system rigorously using the RAGAS framework</li>
+</ul>
+<p>Out of scope: real-time regulation updates, user authentication, and multi-turn conversation history.</p>
+<hr>
+<h2 id="system-design--architecture">System Design &amp; Architecture</h2>
+<img src="/images/projects/askperaturan-ojk/arch.png" alt="Architecture Diagram" style="width: 100%; max-width: 700px; border-radius: 8px; display: block; margin: 1rem auto;">
+<p>The pipeline works in a sequential, agentic flow orchestrated by LangGraph. When a user submits a question, it first goes through a hybrid retriever that runs BM25 keyword search and ChromaDB semantic search in parallel. The merged results are then reranked by a Cohere cross-encoder to select the top 3 most relevant chunks. A grading node uses the LLM to decide whether those chunks are sufficient to answer the question. If they are not, Tavily web search is triggered as a fallback. Finally, the answer generator produces a response using Mistral Medium 3 with a strict grounding prompt, and tokens are streamed back to the Next.js frontend via Server-Sent Events.</p>
+<p>Each step in the pipeline is a separate LangGraph node with a defined state, making the flow easy to extend and debug independently.</p>
+<hr>
+<h2 id="tech-stack">Tech Stack</h2>
+<table class="table table-bordered mt-3 text-light">
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Technology</th>
+      <th>Why I chose it</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Frontend</td>
+      <td><strong>Next.js (TypeScript)</strong></td>
+      <td>Modern, responsive UI with built-in SSE support for streaming responses</td>
+    </tr>
+    <tr>
+      <td>API Layer</td>
+      <td><strong>FastAPI</strong></td>
+      <td>Async, lightweight backend that handles streaming endpoints cleanly</td>
+    </tr>
+    <tr>
+      <td>Orchestration</td>
+      <td><strong>LangChain + LangGraph</strong></td>
+      <td>Agentic workflow with clear node boundaries and easy state management</td>
+    </tr>
+    <tr>
+      <td>LLM</td>
+      <td><strong>Mistral Medium 3</strong></td>
+      <td>Strong instruction-following for strict grounding prompts</td>
+    </tr>
+    <tr>
+      <td>Embeddings</td>
+      <td><strong>Cohere embed-multilingual-v3.0</strong></td>
+      <td>Accurate multilingual embeddings that handle Bahasa Indonesia well</td>
+    </tr>
+    <tr>
+      <td>Vector Store</td>
+      <td><strong>ChromaDB</strong></td>
+      <td>Lightweight, self-hosted vector database suitable for this document scale</td>
+    </tr>
+    <tr>
+      <td>Retrieval</td>
+      <td><strong>BM25 + Semantic + Cross-Encoder</strong></td>
+      <td>Three-layer approach captures both keyword and semantic matches, then reranks</td>
+    </tr>
+    <tr>
+      <td>Web Fallback</td>
+      <td><strong>Tavily Search</strong></td>
+      <td>Reliable web search API for queries not covered by the local knowledge base</td>
+    </tr>
+    <tr>
+      <td>Evaluation</td>
+      <td><strong>RAGAS</strong></td>
+      <td>Standard RAG evaluation framework covering faithfulness, recall, and precision</td>
+    </tr>
+    <tr>
+      <td>Containerization</td>
+      <td><strong>Docker + Docker Compose</strong></td>
+      <td>Consistent local and production environments</td>
+    </tr>
+    <tr>
+      <td>CI/CD</td>
+      <td><strong>GitHub Actions</strong></td>
+      <td>Automated lint, type check, test, and deployment on every push and merge</td>
+    </tr>
+    <tr>
+      <td>Deployment</td>
+      <td><strong>Vercel + Render</strong></td>
+      <td>Free-tier deployment with Nginx configured for SSE streaming</td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="development-journey">Development Journey</h2>
+<h3 id="phase-1-research--prototyping">Phase 1: Research &amp; Prototyping</h3>
+<p>The first step was understanding the structure of OJK regulatory documents. POJK PDFs follow Indonesian legal formatting with specific section markers like <code>BAB</code>, <code>Bagian</code>, <code>Pasal</code>, and <code>Ayat</code>. I tested plain vector search first and quickly found it struggled with regulation-specific queries that contain exact numbers like &ldquo;POJK 77/2016&rdquo; or &ldquo;Pasal 8 ayat 3&rdquo;. This made clear that keyword search needed to be part of the retrieval strategy alongside semantic search.</p>
+<h3 id="phase-2-core-implementation">Phase 2: Core Implementation</h3>
+<p>I built the retrieval pipeline in three layers. BM25 handles exact matches for regulation codes and article numbers, while ChromaDB handles meaning-based queries. Both run in parallel and their results are merged before being passed to the Cohere reranker, which scores each chunk directly against the query and selects the top 3. The agentic grading node was added to handle edge cases where no retrieved chunk sufficiently answers the question, triggering Tavily web search as a fallback before generation.</p>
+<p>For document ingestion, each PDF&rsquo;s first page is processed by an LLM to extract a clean, structured title before chunking. Splitting uses legal-aware separators that respect Indonesian regulatory boundaries rather than generic character limits.</p>
+<h3 id="phase-3-testing--iteration">Phase 3: Testing &amp; Iteration</h3>
+<p>I evaluated the system using RAGAS on 25 test questions covering OJK fintech, lending, and capital market regulations. The strict grounding prompt was iterated several times to reach a faithfulness score of 1.0, which means the model never generates content beyond what the retrieved documents contain. Context precision at 0.75 indicated some retrieved chunks were not fully relevant, which pointed to opportunities for reranker tuning with a larger test set.</p>
+<hr>
+<h2 id="challenges--how-i-solved-them">Challenges &amp; How I Solved Them</h2>
+<p><strong>Challenge 1: Handling regulation-specific keyword queries</strong><br>
+Plain semantic search struggled with queries that contain exact regulation numbers and article references. A user asking about &ldquo;POJK 77/2016 Pasal 8&rdquo; expects the exact document, not a semantically similar one. I solved this by adding BM25 alongside semantic search in an ensemble retriever with equal weighting. Both run in parallel and their results are merged before reranking, which means the system benefits from both exact keyword matching and meaning-based retrieval.</p>
+<p><strong>Challenge 2: Preventing hallucination on unanswerable questions</strong><br>
+LLMs have a tendency to generate plausible-sounding answers even when the retrieved context does not support them. To address this, I wrote a strict grounding prompt that explicitly instructs the model to refuse answering when information is not present in the documents. The LangGraph grading node also filters out insufficient retrieval results before generation, so the model only sees relevant context. This produced a RAGAS faithfulness score of 1.0 on the test set.</p>
+<p><strong>Challenge 3: Multilingual retrieval accuracy</strong><br>
+OJK documents are written in formal Bahasa Indonesia with legal terminology that differs significantly from everyday language. Standard English-focused embedding models perform poorly on this. I chose Cohere&rsquo;s <code>embed-multilingual-v3.0</code>, which is trained on multilingual data and handles Bahasa Indonesia accurately. Combined with BM25 for keyword matches, retrieval context recall reached 0.96 on the test set.</p>
+<p><strong>Challenge 4: Streaming responses through the pipeline</strong><br>
+LangGraph&rsquo;s agentic pipeline involves multiple async steps before the final generation node, which made streaming the response tokens back to the frontend non-trivial. I configured FastAPI with Server-Sent Events and set Nginx&rsquo;s <code>proxy_buffering off</code> so tokens could flow through without being batched by the reverse proxy.</p>
+<hr>
+<h2 id="results--impact">Results &amp; Impact</h2>
+<ul>
+<li>RAGAS Faithfulness of 1.00, the system never hallucinates beyond retrieved documents</li>
+<li>RAGAS Context Recall of 0.96, retrieval finds the right chunks 96% of the time</li>
+<li>RAGAS Answer Correctness of 0.87 against ground truth answers</li>
+<li>Context Precision of 0.75, indicating room for further reranker tuning</li>
+<li>Fully deployed with a public demo on Vercel and Render</li>
+</ul>
+<hr>
+<h2 id="what-i-learned">What I Learned</h2>
+<p>This project taught me that retrieval quality matters far more than generation quality in a RAG system. Getting a faithfulness of 1.0 was mostly a prompting and retrieval problem, not a model selection problem. The ensemble retrieval approach was a key insight: neither BM25 nor semantic search alone was sufficient for a legal document domain with specific codes and article references.</p>
+<p>I also learned how to build agentic workflows with LangGraph and how to think about each pipeline step as an independent node with its own state. This made debugging much easier because I could inspect the output of each node separately. Setting up SSE streaming through FastAPI and Nginx was another practical skill I picked up from building this project.</p>
+<hr>
+<h2 id="future-work">Future Work</h2>
+<ul>
+<li>Add a scheduled ingestion pipeline so new OJK regulations are automatically indexed without manual runs</li>
+<li>Improve context precision beyond 0.75 by fine-tuning the reranker on a domain-specific dataset of OJK queries</li>
+<li>Build multi-turn conversation support so users can ask follow-up questions within a session</li>
+<li>Add a regulation change tracking feature that highlights what changed between POJK versions</li>
+</ul>
+<hr>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://github.com/FrienDotJava/ask-peraturan-ojk">GitHub Repository</a></li>
+<li><a href="https://ask-peraturan-ojk.vercel.app/">Live Demo</a></li>
+<li><a href="https://ask-peraturan-ojk-backend.onrender.com">API</a></li>
+</ul>
+
+        </div>
+        <a href="/#projects" class="btn btn-outline-secondary mt-4">← Back to Projects</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div><footer>
+    
+
+
+ 
+
+<div class="text-center pt-2">
+    
+    <span class="px-1">
+        <a href="https://github.com/FrienDotJava" target="_blank" aria-label="github">
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.7em" height="2.7em" viewBox="0 0 1792 1792">
+                <path id="footer-socialNetworks-github-svg-path"
+                    d="M522 1352q-8 9-20-3-13-11-4-19 8-9 20 3 12 11 4 19zm-42-61q9 12 0 19-8 6-17-7t0-18q9-7 17 6zm-61-60q-5 7-13 2-10-5-7-12 3-5 13-2 10 5 7 12zm31 34q-6 7-16-3-9-11-2-16 6-6 16 3 9 11 2 16zm129 112q-4 12-19 6-17-4-13-15t19-7q16 5 13 16zm63 5q0 11-16 11-17 2-17-11 0-11 16-11 17-2 17 11zm58-10q2 10-14 14t-18-8 14-15q16-2 18 9zm964-956v960q0 119-84.5 203.5t-203.5 84.5h-224q-16 0-24.5-1t-19.5-5-16-14.5-5-27.5v-239q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-121-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-86-13.5q-44 113-7 204-79 85-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-40 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 103t.5 68q0 22-11 33.5t-22 13-33 1.5h-224q-119 0-203.5-84.5t-84.5-203.5v-960q0-119 84.5-203.5t203.5-84.5h960q119 0 203.5 84.5t84.5 203.5z" />
+
+                <metadata>
+                    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+                        <rdf:Description about="https://iconscout.com/legal#licenses"
+                            dc:title="Github, Online, Project, Hosting, Square"
+                            dc:description="Github, Online, Project, Hosting, Square" dc:publisher="Iconscout"
+                            dc:date="2016-12-14" dc:format="image/svg+xml" dc:language="en">
+                            <dc:creator>
+                                <rdf:Bag>
+                                    <rdf:li>Font Awesome</rdf:li>
+                                </rdf:Bag>
+                            </dc:creator>
+                        </rdf:Description>
+                    </rdf:RDF>
+                </metadata>
+            </svg>
+        </a>
+    </span>
+    
+
+    
+    <span class="px-1">
+        <a href="https://www.linkedin.com/in/frendy-frendy/" target="_blank" aria-label="linkedin">
+            <svg xmlns="http://www.w3.org/2000/svg" width='2.4em' height='2.4em' fill="#fff" aria-label="LinkedIn"
+                viewBox="0 0 512 512">
+                <rect width="512" height="512" fill="#0077b5" rx="15%" />
+                <circle cx="142" cy="138" r="37" />
+                <path stroke="#fff" stroke-width="66" d="M244 194v198M142 194v198" />
+                <path d="M276 282c0-20 13-40 36-40 24 0 33 18 33 45v105h66V279c0-61-32-89-76-89-34 0-51 19-59 32" />
+            </svg>
+        </a>
+    </span>
+    
+
+    
+
+    
+    <a href="https://instagram.com/ntizz_" target="_blank" aria-label="instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
+            <radialGradient id="yOrnnhliCrdS2gy~4tD8ma" cx="19.38" cy="42.035" r="44.899"
+                gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#fd5" />
+                <stop offset=".328" stop-color="#ff543f" />
+                <stop offset=".348" stop-color="#fc5245" />
+                <stop offset=".504" stop-color="#e64771" />
+                <stop offset=".643" stop-color="#d53e91" />
+                <stop offset=".761" stop-color="#cc39a4" />
+                <stop offset=".841" stop-color="#c837ab" />
+            </radialGradient>
+            <path fill="url(#yOrnnhliCrdS2gy~4tD8ma)"
+                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z" />
+            <radialGradient id="yOrnnhliCrdS2gy~4tD8mb" cx="11.786" cy="5.54" r="29.813"
+                gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#4168c9" />
+                <stop offset=".999" stop-color="#4168c9" stop-opacity="0" />
+            </radialGradient>
+            <path fill="url(#yOrnnhliCrdS2gy~4tD8mb)"
+                d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z" />
+            <path fill="#fff"
+                d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z" />
+            <circle cx="31.5" cy="16.5" r="1.5" fill="#fff" />
+            <path fill="#fff"
+                d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z" />
+        </svg>
+    </a>
+    
+
+    
+</div><div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-4 text-center">
+            &copy; 2026  All rights reserved
+        </div>
+    </div>
+</div>
+</footer><script src="/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+        document.documentElement.classList.remove('dark');
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+    }
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            document.documentElement.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <section id="search-content" class="py-2">
+    <div class="container" id="search-results"></div>
+  </section>
+</body>
+
+</html>

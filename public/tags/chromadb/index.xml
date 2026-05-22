@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ChromaDB on Frendy</title>
+    <link>http://localhost:1313/tags/chromadb/</link>
+    <description>Recent content in ChromaDB on Frendy</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/chromadb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ask Peraturan OJK</title>
+      <link>http://localhost:1313/projects/askperaturan-ojk/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/askperaturan-ojk/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This project is a Retrieval-Augmented Generation (RAG) application that lets users ask questions about OJK (Otoritas Jasa Keuangan) regulations in plain Bahasa Indonesia and get direct, cited answers. The system retrieves relevant content from official POJK regulatory PDFs and generates grounded responses using a large language model, without requiring users to manually search through dense legal documents.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;&#xA;&lt;p&gt;OJK regulations are spread across dozens of POJK documents, each containing complex legal language that is hard to navigate for founders, fintech operators, and compliance teams. Finding a specific rule often means downloading multiple PDFs, skimming through pages of text, and still being unsure if the answer is complete. There was no simple way to just ask a question and get a direct, sourced answer. This project solves that by building a conversational interface on top of the official regulatory documents.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
