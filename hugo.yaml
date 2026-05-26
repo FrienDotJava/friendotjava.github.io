@@ -320,6 +320,7 @@ params:
       - title: Product Recommendation System
         content: Product recommendation system built using anime dataset as a proxy. Users can rate anime they have watched, and the system will generate new recommendations based on their ratings.
         image: /images/projects/anime.png
+        slug: recommendation-system
         featured:
           name: Demo
           link: https://anime-recommendation-next-app.vercel.app/
