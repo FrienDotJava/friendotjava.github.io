@@ -201,6 +201,15 @@ params:
           - Assessed and thoroughly reviewed student project submissions within the Machine Learning and Data Science learning paths.
           - Provided detailed, actionable feedback on code quality, model implementation, and data processing techniques to foster student skill development.
           - Ensured all student submissions consistently adhered to industry best practices, coding standards, and the rigorous technical requirements of the curriculum.
+      
+      - title: "Assistant Lecturer"
+        company: "Universitas Atma Jaya Yogyakarta"
+        companyUrl: "https://www.uajy.ac.id/"
+        date: "Aug 2023 - Present"
+        content: |
+          - Assisted undergraduate courses across mathematics and computer science subjects, including Calculus, Linear Algebra, Data Structure, OOP, and Machine Learning
+          - Developed practice modules and laboratory materials to support student learning
+          - Facilitated lab sessions and evaluated student assignments to monitor academic progress requirements of the curriculum.
 
   # Education
   education:
