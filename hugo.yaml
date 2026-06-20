@@ -263,7 +263,7 @@ params:
     enable: true
     # title: "Custom Name"
     items:
-      - title: AskPeraturan OJK
+      - title: RAG-Based Regulatory Q&A System for OJK Financial Documents
         content: A RAG (Retrieval-Augmented Generation) application that answers questions about OJK (Otoritas Jasa Keuangan) regulations in Bahasa Indonesia. The system retrieves relevant content from official OJK regulatory documents and generates grounded, cited answers using a large language model.
         image: /images/projects/ojk.png
         slug: askperaturan-ojk
@@ -282,7 +282,7 @@ params:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/ask-peraturan-ojk
 
-      - title: FlowGuard AI
+      - title: AI-Powered Security Monitoring for Industrial Automation Systems
         content: This project simulates a real-world manufacturing environment where an AI agent continuously monitors and audits industrial automation logic for security vulnerabilities and logic flaws.
         image: /images/projects/flowguard.png
         slug: flowguard-ai
@@ -296,7 +296,7 @@ params:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/manufacture-security
 
-      - title: BPJS Hospital Readmission Prediction
+      - title: BPJS Hospital Readmission Prediction with End-to-End MLOps Pipeline
         content: MLOps project to predict 30-day hospital readmissions for BPJS patients in Indonesia and includes an interactive dashboard for regional and demographic analysis.
         image: /images/projects/bpjs.png
         slug: readmission-prediction
@@ -318,7 +318,7 @@ params:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/bpjs-hospital-readmission
 
-      - title: Multilingual Translator (Local Indonesia languages to Bahasa Indonesia)
+      - title: Multilingual Neural Machine Translation for Low-Resource Indonesian Regional Languages
         content: I fine-tuned LLMs to translate 5 local languages in Indonesia (Javanese, Balinese, Minangkabau, Sundanese, and Dayak) to Bahasa Indonesia.
         image: /images/projects/translator.png
         slug: multilingual-translator
