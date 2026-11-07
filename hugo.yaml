@@ -66,7 +66,7 @@ markup:
     #   weight: 2
 
 params:
-  title: "Frendy's Porfolio"
+  title: "Frendy's Portfolio"
   description: This is my portfolio website where you can get to know me
   # staticPath: ""  # The path to serve the static files from
   favicon: "/fav.png"
@@ -167,7 +167,7 @@ params:
     title: "About Me"
     image: "/images/me2.jpeg"
     content: |-
-      I am a final-year Informatics student with a strong focus on Machine Learning and MLOps. 
+      I am an Informatics graduate with a strong focus on Machine Learning and MLOps. 
       I specialize in building end-to-end, production-ready pipelines and have a deep interest in Natural Language Processing, particularly Transformer architectures. 
       My background includes bridging the gap between data science research and robust software development.
     skills:
@@ -188,30 +188,41 @@ params:
   experience:
     enable: true
     items:
-
-      - title: "External Code Reviewer"
+      
+      - title: "AI & Machine Learning Intern"
+        company: "PT Merak Chemical Indonesia"
+        companyUrl: "https://www.mcci-id.com/"
+        date: "Sep 2026 - Present"
+        content: |
+          - Project manager and AI engineer for an internal HR chatbot and HR autonomous agent, within a three-person team delivering four AI projects.
+          - Built an agentic RAG system that retrieves HR documents and queries the employee database through tool calling, with guardrails for security and masking of sensitive information.
+          - Implemented advanced RAG techniques (query rewriting, multi-hop retrieval, reranking) and experimented with frontier and open-source LLMs through OpenRouter and LiteLLM. Stack: Flask and PostgreSQL.
+          - Data scientist on an early drift detection project for a critical reactor. Analyze sensor tag behaviour and drift, compare statistical methods, and build the monitoring dashboard in Grafana.
+          - Developing a P&ID analysis web app that detects text and symbols in engineering drawings and links highlighted text to related documents.
+      
+      - title: "IT Intern"
+        company: "PT Kalbe Morinaga Indonesia"
+        companyUrl: "https://kalbenutritionals.com/id/produk-kami/morinaga"
+        date: "Aug 2025 - Aug 2026"
+        content: |
+          - Engineered and maintained internal information systems to support digital transformation within a major manufacturing facility.
+          - Key Projects: Developed an Early Warning System for machinery monitoring, a Smart Maintenance System (CBM & PM dashboards), and a comprehensive Work Request analytics module.
+          - Built and designed applications utilizing Laravel, MySQL, Laragon, Figma, and GitLab.
+          - Successfully bridged technical development with manufacturing business processes by translating non-IT user requirements into functional digital tools.
+      
+      - title: "Machine Learning & Data Science Code Reviewer"
         company: "Dicoding Indonesia"
         companyUrl: "https://www.dicoding.com/"
-        date: "Mar 2025 - Present"
+        date: "Mar 2025 - Jun 2026"
         content: |
           - Assessed and thoroughly reviewed student project submissions within the Machine Learning and Data Science learning paths.
           - Provided detailed, actionable feedback on code quality, model implementation, and data processing techniques to foster student skill development.
           - Ensured all student submissions consistently adhered to industry best practices, coding standards, and the rigorous technical requirements of the curriculum.
       
-      - title: "Web Developer Intern"
-        company: "PT Kalbe Morinaga Indonesia"
-        companyUrl: "https://kalbenutritionals.com/id/produk-kami/morinaga"
-        date: "Aug 2025 - Present"
-        content: |
-          - Engineer and maintain internal information systems to support digital transformation within a major manufacturing facility.
-          - Key Projects: Developed an Early Warning System for machinery monitoring, a Smart Maintenance System (CBM & PM dashboards), and a comprehensive Work Request analytics module.
-          - Build and design applications utilizing Laravel, MySQL, Laragon, Figma, and GitLab.
-          - Successfully bridged technical development with manufacturing business processes by translating non-IT user requirements into functional digital tools.
-      
       - title: "Assistant Lecturer"
         company: "Universitas Atma Jaya Yogyakarta"
         companyUrl: "https://www.uajy.ac.id/"
-        date: "Aug 2023 - Present"
+        date: "Aug 2023 - Jun 2026"
         content: |
           - Assisted undergraduate courses across mathematics and computer science subjects, including Calculus, Linear Algebra, Data Structure, OOP, and Machine Learning
           - Developed practice modules and laboratory materials to support student learning
@@ -223,7 +234,7 @@ params:
     # title: "Custom Name"
     index: false
     items:
-      - title: "Bachelor of Computer Science in Informaticss"
+      - title: "Bachelor of Computer Science in Informatics"
         school:
           name: "Universitas Atma Jaya Yogyakarta"
           url: "https://uajy.ac.id/"
@@ -237,32 +248,50 @@ params:
             - University Student Choir (Paduan Suara Mahasiswa UAJY).
 
   # Achievements
-  # achievements:
-  #   enable: true
-  #   # title: "Custom Name"
-  #   items:
-  #     - title: Google kickstart runner
-  #       content: I solved all problems with optimal solution.
-  #       url: https://example.com
-  #       image: /images/achievement.jpg
-  #     - title: Facebook Hackathon Winner
-  #       content: Developed a product using Artificial Intelligence.
-  #       image: /images/achievement.jpg
-  #     - title: Hugo Profile
-  #       content: Developed a theme and getting 1K+ downloads per month.
-  #       url: "https://github.com/gurusabarish/hugo-profile"
-  #       image: /images/achievement.jpg
-  #     - title: Microsoft Imagine Runner
-  #       content: We are developed a product which can help others.
-  #     - title: Google Summer of Code
-  #       content: Contributed to a open source project.
-  #       url: https://example.com
+  achievements:
+    enable: true
+    # title: "Custom Name"
+    items:
+      - title: Kalbe Group Improvement
+        content: The Early Detection project I developed won the Best Improvement Project award across the entire Kalbe Group.
+        # url: https://example.com
+        image: /images/kalbe.png
 
   # projects
   projects:
     enable: true
     # title: "Custom Name"
     items:
+      - title: HR Chatbot and Autonomous Agent (Agentic RAG)
+        content: An internal HR assistant, in progress, that answers employee questions by retrieving HR documents and querying the employee database through tool calling. Includes guardrails for security and masking of sensitive information, advanced RAG (query rewriting, multi-hop retrieval, reranking), and experiments across frontier and open-source LLMs. I serve as project manager and AI engineer.
+        image: /images/mcci.png
+        badges:
+          - "Agentic RAG"
+          - "Tool Calling"
+          - "Guardrails"
+          - "LiteLLM"
+          - "OpenRouter"
+          - "Flask"
+          - "PostgreSQL"
+
+      - title: Early Drift Detection for Industrial Equipment
+        content: A monitoring system, in progress, that analyzes sensor tag data from a critical reactor to detect drift before it reaches alarm thresholds. I analyze tag behavior and drift, experiment with statistical methods, and built the monitoring dashboard in Grafana. I work on it as the data scientist.
+        image: /images/mcci.png
+        badges:
+          - "Anomaly Detection"
+          - "Time Series"
+          - "Statistical Methods"
+          - "Grafana"
+
+      - title: P&ID Text and Symbol Detection with Document Search
+        content: A web app, in progress, that detects text and symbols in P&ID engineering drawings. Clicking a highlighted text searches related documents. I handle model selection and performance improvement so text detection is accurate enough to drive the document search.
+        image: /images/mcci.png
+        badges:
+          - "Computer Vision"
+          - "Object Detection"
+          - "Text Detection"
+          - "Document Search"
+
       - title: RAG-Based Regulatory Q&A System for OJK Financial Documents
         content: A RAG (Retrieval-Augmented Generation) application that answers questions about OJK (Otoritas Jasa Keuangan) regulations in Bahasa Indonesia. The system retrieves relevant content from official OJK regulatory documents and generates grounded, cited answers using a large language model.
         image: /images/projects/ojk.png
@@ -350,34 +379,34 @@ params:
           - icon: fab fa-github
             url: https://github.com/FrienDotJava/anime-recommendation-app
 
-      - title: Income Prediction System
-        content: A modular machine-learning project that predicts whether a person’s annual income is > $50K or ≤ $50K.
-        image: /images/projects/income.png
-        featured:
-          name: Demo
-          link: https://income-prediction1.streamlit.app/
-        badges:
-          - "MLOps"
-          - "Classification"
-          - "MLFlow"
-          - "DVC"
-        links:
-          - icon: fab fa-github
-            url: https://github.com/FrienDotJava/income-prediction
+      # - title: Income Prediction System
+      #   content: A modular machine-learning project that predicts whether a person’s annual income is > $50K or ≤ $50K.
+      #   image: /images/projects/income.png
+      #   featured:
+      #     name: Demo
+      #     link: https://income-prediction1.streamlit.app/
+      #   badges:
+      #     - "MLOps"
+      #     - "Classification"
+      #     - "MLFlow"
+      #     - "DVC"
+      #   links:
+      #     - icon: fab fa-github
+      #       url: https://github.com/FrienDotJava/income-prediction
 
-      - title: Beijing Air Quality Analysis
-        content: An end-to-end data analysis project exploring air quality across multiple districts in Beijing. Includes exploratory data analysis in Jupyter Notebook and an interactive Streamlit dashboard for visualizing pollutant trends and patterns.
-        image: /images/projects/air-quality.png
-        featured:
-          name: Demo
-          link: https://air-quality-analysis-a4zkrusgbn4jfwznqjuxcr.streamlit.app/
-        badges:
-          - "Data Analysis"
-          - "Air Quality"
-          - "Streamlit"
-        links:
-          - icon: fab fa-github
-            url: https://github.com/FrienDotJava/air-quality-analysis
+      # - title: Beijing Air Quality Analysis
+      #   content: An end-to-end data analysis project exploring air quality across multiple districts in Beijing. Includes exploratory data analysis in Jupyter Notebook and an interactive Streamlit dashboard for visualizing pollutant trends and patterns.
+      #   image: /images/projects/air-quality.png
+      #   featured:
+      #     name: Demo
+      #     link: https://air-quality-analysis-a4zkrusgbn4jfwznqjuxcr.streamlit.app/
+      #   badges:
+      #     - "Data Analysis"
+      #     - "Air Quality"
+      #     - "Streamlit"
+      #   links:
+      #     - icon: fab fa-github
+      #       url: https://github.com/FrienDotJava/air-quality-analysis
 
   #Contact
   contact:
